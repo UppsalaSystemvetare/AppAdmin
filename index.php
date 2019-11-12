@@ -14,7 +14,7 @@ include("include/header.php");
     <body>
         <div id="container">
             <h2>
-            Hej och välkommen till admin!! //Viktor
+            Hej och välkommen till admin!! //Viktor USERS
             </h2>
         </div>
         <div id="container">
