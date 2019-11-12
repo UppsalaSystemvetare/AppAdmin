@@ -6,7 +6,7 @@ $connection = connect();
 $all = "SELECT * FROM Events";
 $result = $connection->query($all);
 $connection = disconnect();
-
+//Hello Hannes här!
 ?>
 
 <html lang="en">
