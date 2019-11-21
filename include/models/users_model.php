@@ -5,6 +5,8 @@ class User{
       $all = "SELECT * FROM Users";
       $result = $connection->query($all);
       $connection = disconnect();
+
+      return $result;
     }
 }
  ?>
