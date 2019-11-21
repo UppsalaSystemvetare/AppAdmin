@@ -1,10 +1,7 @@
-<?php
-include("include/models/header.php");
-include("include/models/users_model.php");
-?>
 <!DOCTYPE html>
 <?php
 include("include/models/header.php");
+include("include/models/users_model.php");
 ?>
 <html lang="en">
 
