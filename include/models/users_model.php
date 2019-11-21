@@ -6,8 +6,5 @@ class User{
       $result = $connection->query($all);
       $connection = disconnect();
     }
-    static publc function list_users{
-
-    }
 }
  ?>
