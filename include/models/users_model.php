@@ -8,5 +8,14 @@ class Users{
 
       return $result;
     }
+
+    static public function change_team($id, $rank){
+      $connection = connect();
+      $query = "UPDATE Users SET Rank = '$rank' WHERE ID = '$id'";
+      if(!$result = $connection->query($result)){
+        echo("Query error: " . $result->query_error);
+        header("Location:../users.php");
+      }
+    }
   }
  ?>
