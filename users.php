@@ -21,7 +21,7 @@ include("include/models/header.php");
 <body>
 
     <?php
-    $result = User::get_users();
+    $result = Users::get_users();
 
     while ($row = $result->fetch_assoc()) { ?>
         <tr>

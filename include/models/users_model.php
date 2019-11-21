@@ -1,5 +1,5 @@
 <?php
-class User{
+class Users{
     static public function get_users(){
       $connection = connect();
       $all = "SELECT * FROM Users";
