@@ -31,27 +31,49 @@ $connection = disconnect();
         <meta http-equiv="content-type" content="text/html" charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/include/events.css">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        
     </head>
     <body>
-        <div id="form-container">
+        <div class="container w-50">
             <form id="add-event" action="event_actions.php">
-                <table>
-                <tr><td>Titel: </td><td><input type="text" id="title"></td></tr>
-                <tr><td>Beskrivning: </td><td><input type="text" id="description"></td></tr>
-                <tr><td>Datum: </td><td><input type="date" id="datetime"></td></tr>
-                <tr><td>Tid: </td><td><input type="time" id="starttime"></td></tr>
-                <tr><td>Plats: </td><td><input type="text" id="location"></td></tr>
-                <tr><td>Nykterfadder 1: </td><td><input type="text" id="patron1"></td></tr>
-                <tr><td>Nykterfadder 2: </td><td><input type="text" id="patron2"></td></tr>
-                </table>
+                
+                <input type="text" id="title" placeholder="title">
+                <br>
+                <input type="text" id="description" placeholder="description">
+                <br>                
+                <input type="date" id="datetime">
+                <br>
+                <input type="time" id="starttime">
+                <br>
+                <input type="text" id="location" placeholder="location">
+                <br>
+                <select name="Patron1">
+                    <option value="" selected>Nykterfadder 1</option>
+                    <option value="fadderID1">Aragorn</option>
+                    <option value="fadderID2">Legolas</option>
+                    <option value="fadderID3">Gimli</option>
+                    <option value="fadderID4">Boromir</option>
+                </select>
+                <br>
+                <select name="Patron2">
+                    <option value="" selected>Nykterfadder 2</option>
+                    <option value="fadderID1">Aragorn</option>
+                    <option value="fadderID2">Legolas</option>
+                    <option value="fadderID3">Gimli</option>
+                    <option value="fadderID4">Boromir</option>
+                </select>
+                <br>
                 <input type="submit" value="Submit">
             </form>
 
         </div>
-
-        <div id="table-container">
+        <br>
+        <h2 class= "text-center">Planerade event:</h2>
+        <div class="container">
             <table class="table">
                 <thead>
                 <tr>
