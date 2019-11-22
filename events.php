@@ -130,7 +130,25 @@ $connection = disconnect();
 
 
 <?php
+	function Add($title, $dateTime, $startTime, $location, $description, $patron1, $patron2)
+	{	
 
-//echo "<div id= $row['id']>" . "<$row['id']" .  
+			  if($connection->connect_error)
+			{
+				die("Connection failed: ".$connection.connect_error); // fixa connection.connect_error.
+			}
+		
+		$title = mysqli_real_escape_string($connection, $_POST['title']);
+		$dateTime = mysqli_real_escape_string($connection, $_POST['dateTime']);
+		$startTime = mysqli_real_escape_string($connection, $_POST['startTime']);
+		$location = mysqli_real_escape_string($connection, $_POST['location']);
+		$description = mysqli_real_escape_string($connection, $_POST['description']);
+		$patron1 = mysqli_real_escape_string($connection, $_POST['patron1']);
+		$patron2 = mysqli_real_escape_string($connection, $_POST['patron2']);
+		$sql = "INSERT INTO events(Title, DateTime, StartTime, Location, Description, Patron1, Patron2) VALUES ('$title', '$dateTime', '$startTime' , '$location', '$description', '$patron1', '$patron2')";
 
-?>
+	}
+
+echo "<div id= $row['id']>" . "<$row['id']" .  
+
+?> 
