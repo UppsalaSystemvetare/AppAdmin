@@ -16,8 +16,6 @@ $connection = disconnect();
 
 //FRONTEND:
 // Stil
-// Knappar för att ändra och ta bort
-// Rullista för nykterfaddrar
 // Tabellen ska presentera namn på nykterfaddrar och inte ID?
 
 
@@ -30,27 +28,39 @@ $connection = disconnect();
         <title>Admin Inspark</title>
         <meta http-equiv="content-type" content="text/html" charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/include/events.css">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="include/events.css">
+        <script src="https://kit.fontawesome.com/62782ec40b.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="events.js"></script>
         
     </head>
     <body>
-        <div class="container w-50">
+    <h3 class= "text-center">Nytt event:</h3>
+        <div class="nytt_event container">
             <form id="add-event" action="event_actions.php">
-                
-                <input type="text" id="title" placeholder="title">
+                Titel:<br>
+                <input style="color:black" type="text" id="title" size=30 >
                 <br>
-                <input type="text" id="description" placeholder="description">
-                <br>                
-                <input type="date" id="datetime">
+                Beskrivning:<br>
+                <textarea style="color:black; resize:none" type="text" id="description" Rows=2 Cols= 35></textarea>
                 <br>
-                <input type="time" id="starttime">
+                <input type="checkbox" name="pubrunda" value="is_pubrunda"> Detta är en pubrunda
                 <br>
-                <input type="text" id="location" placeholder="location">
                 <br>
+                <span>
+                Datum: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                Tid:<br>           
+                <input style="color:black" type="date" id="datetime">
+                <input style="color:black" type="time" id="starttime">
+                </span>
+                <br>
+                Plats:<br>
+                <input style="color:black" type="text" id="location">
+                <br>
+                <span>
+                Nykterfaddrar: <br>
                 <select name="Patron1">
                     <option value="" selected>Nykterfadder 1</option>
                     <option value="fadderID1">Aragorn</option>
@@ -58,7 +68,7 @@ $connection = disconnect();
                     <option value="fadderID3">Gimli</option>
                     <option value="fadderID4">Boromir</option>
                 </select>
-                <br>
+                
                 <select name="Patron2">
                     <option value="" selected>Nykterfadder 2</option>
                     <option value="fadderID1">Aragorn</option>
@@ -67,24 +77,27 @@ $connection = disconnect();
                     <option value="fadderID4">Boromir</option>
                 </select>
                 <br>
-                <input type="submit" value="Submit">
+                <br>
+                <button type="button" class="btn-default btn-sm">Skapa</button>
+                </span>
             </form>
 
         </div>
         <br>
-        <h2 class= "text-center">Planerade event:</h2>
-        <div class="container">
-            <table class="table">
+        <h3 class= "text-center">Planerade event:</h3>
+        <div class="container" style="width: 100%">
+            <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>#</th>
                     <th>Namn</th>
                     <th>Dag</th>
                     <th>Starttid</th>
                     <th>Plats</th>
                     <th>Beskrivning</th>
-                    <th>Nykterfadder 1</th>
-                    <th>Nykterfadder 2</th>
+                    <th>Nykterfadd.1</th>
+                    <th>Nykterfadd.2</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -96,13 +109,21 @@ $connection = disconnect();
                     <td><?php echo $row["StartTime"]?></td>
                     <td><?php echo $row["Location"]?></td>
                     <td><?php echo $row["Description"]?></td>
-                    <td style="Width:130px;"><?php echo $row["Patron1"]?></td>
-                    <td style="Width:130px;"><?php echo $row["Patron2"]?></td>        
+                    <td style="Width:120px;"><?php echo $row["Patron1"]?></td>
+                    <td style="Width:120px;"><?php echo $row["Patron2"]?></td>  
+                    <td style="Width:90px;">
+                        <?php echo 
+                        "<button id=" . $row["Id"] .  " class='btn btn_edit'><i class='fas fa-cog'></i></button>" ?>
+                    </td>
+
                 </tr>
             <?php }?>
             </tbody>
             </table>
             </div>
+        </div>
+        <div class="edit_window">
+            HELLO WORLD    
         </div>
     </body>
 </html>
