@@ -1,14 +1,14 @@
 function change_tab(going_to) {
-    swap_classes();
+    swap_classes(going_to);
     display(going_to);
 }
 
 // Changes the effective class on our buttons.
-function swap_classes(){
-    if(document.getElementById("create_missions_button").className === "section-button selected"){
+function swap_classes(going_to){
+    if(document.getElementById("create_missions_button").className === "section-button selected" && going_to === "table"){
         document.getElementById("create_missions_button").className = "section-button"
         document.getElementById("all_missions_button").className = "section-button selected"
-    } else {
+    } else if (document.getElementById("all_missions_button").className === "section-button selected" && going_to === "create") {
         document.getElementById("create_missions_button").className = "section-button selected"
         document.getElementById("all_missions_button").className = "section-button"
     }
