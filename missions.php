@@ -8,16 +8,22 @@ include("include/models/missions_model.php");
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/mission_style.css" type="text/css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
     <body>
         <div id="container">
-            <div id="container" class="header">
-                <h1>All missions</h1>
+            <div class="header">
+                <div class="section-button selected" id="all_missions_button">
+                    <h1 onclick="change_tab('table')">All Missions</h1>
+                </div>
+                <div class="section-button" id="create_missions_button">
+                    <h1 onclick="change_tab('create')">Create Missions</h1>
+                </div>
             </div>        
-            <div id="conatiner">
-                <table class="table">
+            <div class="content">
+                <table class="table" id="all_missions">
                     <thead>
                     <tr>
                         <th>Id</th>
@@ -26,21 +32,31 @@ include("include/models/missions_model.php");
                     </tr>
                     </thead>
                     <tbody>
-                <?php 
-                    $all_missions = get_all_assoc();
-                    while($row = $all_missions->fetch_assoc()) { 
-                ?>
-                    <tr>
-                        <td><?php echo $row["Id"]?></td>
-                        <td><?php echo $row["Description"]?></td>
-                        <td><?php echo $row["PointValue"]?></td>
-                    </tr>
-                <?php }?>
-                </tbody>
+                    <?php 
+                        $all_missions = get_all_assoc();
+                        while($row = $all_missions->fetch_assoc()) { 
+                    ?>
+                        <tr>
+                            <td><?php echo $row["Id"]?></td>
+                            <td><?php echo $row["Description"]?></td>
+                            <td><?php echo $row["PointValue"]?></td>
+                        </tr>
+                    <?php }?>
+                    </tbody>
                 </table>
+                <div id="create_missions" class="table hidden">
+                    <h2>Create new mission:</h2>
+                    <form action="/action_page.php">
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Beskrivning...">
+                            <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Poängvärde...">
+                        </div> 
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form> 
                 </div>
             </div>
         </div>
     </body>
+    <script src="js/mission_js.js"></script>
 </html>
 
