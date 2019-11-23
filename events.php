@@ -130,7 +130,7 @@ $connection = disconnect();
 
 
 <?php
-	function Add($title, $dateTime, $startTime, $location, $description, $patron1, $patron2)
+	/* function Add($title, $dateTime, $startTime, $location, $description, $patron1, $patron2)
 	{	
 
 			  if($connection->connect_error)
@@ -149,6 +149,6 @@ $connection = disconnect();
 
 	}
 
-echo "<div id= $row['id']>" . "<$row['id']" .  
-
+echo "<div id= $row['id']>" . "<$row['id']" .  >
+*/
 ?> 
