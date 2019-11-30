@@ -9,8 +9,8 @@ $connection = disconnect();
 //Hello Hannes här!
 
 //BACKEND:
-// Lägga till formulärdatan i databasen
-// Radera en rad i databasen givet ett ID
+// Lägga till formulärdatan i databasen			*** Fungerar ***
+// Radera en rad i databasen givet ett ID		*** Bör fungera ***
 // Ändra en rad i databasen givet ett ID
 // Hämta id och namn på alla faddrar från tabellen "Faddrar"
 
