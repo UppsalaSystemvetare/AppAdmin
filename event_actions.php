@@ -1,59 +1,65 @@
 <?php
-	//include("include/header.php");
+	include("include/header.php");
+
+	//Add("PubRundan", "1995-09-11", "17:00", "Uppsala", "PubRundan med uppsala", "30", "0");   // Fungerar för att lägga till i databasen.
 	
 	function Add($title, $dateTime, $startTime, $location, $description, $patron1, $patron2)
 	{	
-
-			  if($connection->connect_error)
-			{
-				die("Connection failed: ".$connection.connect_error); // fixa connection.connect_error.
-			}
-			
-				$title = mysqli_real_escape_string($connection, $_POST['title']);
-				$dateTime = mysqli_real_escape_string($connection, $_POST['datetime']);
-				$startTime = mysqli_real_escape_string($connection, $_POST['starttime']);
-				$location = mysqli_real_escape_string($connection, $_POST['location']);
-				$description = mysqli_real_escape_string($connection, $_POST['description']);
-				$patron1 = mysqli_real_escape_string($connection, $_POST['Patron1']);
-				$patron2 = mysqli_real_escape_string($connection, $_POST['Patron2']);
-				$sql = "INSERT INTO events(Title, DateTime, StartTime, Location, Description, Patron1, Patron2) VALUES ('$title', '$dateTime', '$startTime' , '$location', '$description', '$patron1', '$patron2')";
-				
-			if(mysqli_query($connection, $sql))
-			{
-				echo "Success"
-				header('location: events.php');
-			}
-			else
-			{
-				echo "Insertion error";
-			} 
-
-	}
-	
-	/* function Remove($Id)
-	{	
-	    if($connection->connect_error)
+		$connection = connect();
+		$all = "SELECT * FROM Events";
+		$result = $connection->query($all);
+		//$connection = disconnect();
+		  if($connection->connect_error)
 		{
-			die("Connection failed: ".$connection.connect_error); // fixa connection.connect_error.
+			die("Connection failed: ".$connection.connect_error);
 		}
-		
-		$Id = mysqli_real_escape_string($connection, $_POST['Id']); 
-		$sql = "DELETE FROM events WHERE Id=$Id"
-		
+		$title = mysqli_real_escape_string($connection, $_POST['title']);
+		$dateTime = mysqli_real_escape_string($connection, $_POST['datetime']);
+		$startTime = mysqli_real_escape_string($connection, $_POST['starttime']);
+		$location = mysqli_real_escape_string($connection, $_POST['location']);
+		$description = mysqli_real_escape_string($connection, $_POST['description']);
+		$patron1 = mysqli_real_escape_string($connection, $_POST['Patron1']);
+		$patron2 = mysqli_real_escape_string($connection, $_POST['Patron2']); 
+		$sql = "INSERT INTO Events(Title, DateTime, StartTime, Location, Description, Patron1, Patron2) VALUES ('$title', '$dateTime', '$startTime' , '$location', '$description', '$patron1', '$patron2')";
+			
 		if(mysqli_query($connection, $sql))
 		{
-			echo "Success/deleted"
+			echo "Success"; //Denna rad kan raderas
 			header('location: events.php');
 		}
 		else
 		{
-			echo "Insertion/delete error";
-		} 	
+			echo("Error description: " . mysqli_error($connection));
+		} 
+	}
+	
+	function Remove($Id)
+	{	
+		$connection = connect();
+		$all = "SELECT * FROM Events";
+		$result = $connection->query($all);
+		//$connection = disconnect();
+		  if($connection->connect_error)
+		{
+			die("Connection failed: ".$connection.connect_error); 
+		}
+		
+		$Id = mysqli_real_escape_string($connection, $_POST['Id']); 
+		$sql = "DELETE FROM Events WHERE Id=$Id";
+		
+		if(mysqli_query($connection, $sql))
+		{
+			echo ("Success/deleted"); //Kan raderas om funktionen fungerar utan problem.
+			header('location: events.php');
+		}
+		else
+		{
+			echo("Error description/error when trying to delete: " . mysqli_error($connection));
+		} 
 
 	}
 	
-//echo "<div id= $row['id']>" . "<$row['id']" .  >
-*/
+
 
 	/* function Update(($id, $title, $dateTime, $startTime, $location, $description, $patron1, $patron2)
 	{	
@@ -75,7 +81,7 @@
 		
 		if(mysqli_query($connection, $sql))
 		{
-			echo "Success/Updated"
+			echo "Success/Updated";
 			header('location: events.php');
 		}
 		else
