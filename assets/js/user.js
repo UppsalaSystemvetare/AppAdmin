@@ -1,18 +1,9 @@
+//Listens for checkbox clicks and applies a css class
 $(document).on("click", "tr :checkbox", function(event) {
   $(this)
     .closest("tr")
     .toggleClass("table-primary");
 });
-
-// $(document).on("click", "search", function () {
-//   $('#user-table').find('tr').each(function () {
-//       var row = $(this);
-//       alert(this);
-//       if (row.find('input[type="checkbox"]').is(':checked')) {
-//           alert('You must fill the text area!');
-//       }
-//   });
-// });
 
 $(document).ready(function() {
   $("#delete").click(function() {
@@ -35,6 +26,7 @@ $(document).ready(function() {
   $("#delete").click(function() {});
 });
 
+//change team listeners
 $(document).ready(function() {
   $("#change-team-red").click(function() {
     var users = selectedUsers();
@@ -69,6 +61,7 @@ $(document).ready(function() {
   });
 });
 
+//change team function
 function changeTeam(ID, team) {
   $.post(
     "changeTeamDB.php",
@@ -79,6 +72,55 @@ function changeTeam(ID, team) {
   );
 }
 
+//change rank listeners
+$(document).ready(function() {
+  $("#change-rank-recce").click(function() {
+    var users = selectedUsers();
+    users.forEach(element => {
+      changeRank(element, 1);
+    });
+  });
+});
+
+$(document).ready(function() {
+  $("#change-rank-fadder").click(function() {
+    var users = selectedUsers();
+    users.forEach(element => {
+      changeRank(element, 2);
+    });
+  });
+});
+
+$(document).ready(function() {
+  $("#change-rank-kapten").click(function() {
+    var users = selectedUsers();
+    users.forEach(element => {
+      changeRank(element, 3);
+    });
+  });
+});
+
+$(document).ready(function() {
+  $("#change-rank-general").click(function() {
+    var users = selectedUsers();
+    users.forEach(element => {
+      changeRank(element, 4);
+    });
+  });
+});
+
+//change rank function
+function changeRank(ID, rank) {
+  $.post(
+    "changeRankDB.php",
+    { ID: ID, Rank: rank },
+    function(data) {
+      location.reload();
+    }
+  );
+}
+
+//get selected users
 function selectedUsers() {
   var users = [];
   $("#user-table")

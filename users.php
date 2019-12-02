@@ -38,10 +38,10 @@ include("include/models/users_model.php");
                 Change Rank
             </button>
             <div class="dropdown-menu">
-                <button class="dropdown-item" type="button">General</button>
-                <button class="dropdown-item" type="button">Kapten</button>
-                <button class="dropdown-item" type="button">Fadder</button>
-                <button class="dropdown-item" type="button">Recce</button>
+                <button id="change-rank-general" class="dropdown-item" type="button">General</button>
+                <button id="change-rank-kapten" class="dropdown-item" type="button">Kapten</button>
+                <button id="change-rank-fadder" class="dropdown-item" type="button">Fadder</button>
+                <button id="change-rank-recce" class="dropdown-item" type="button">Recce</button>
             </div>
         </div>
         <div class="dropdown">

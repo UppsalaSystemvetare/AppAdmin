@@ -15,8 +15,6 @@
       $query = "UPDATE Users SET Rank = '$rank' WHERE ID = '$id'";
       $result = $connection->query($query);
       $connection = disconnect();
-
-      return $result;
     }
 
     static public function change_team($id, $team){
