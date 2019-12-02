@@ -50,7 +50,6 @@ function changeTeam(ID, team) {
     { ID: ID, Team: team },
     function(data) {
       location.reload();
-      console.log(data);
     }
   );
 }

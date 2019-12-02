@@ -1,9 +1,10 @@
 <?php
   class Users{
+
     static public function get_users(){
       $connection = connect();
-      $all = "SELECT * FROM Users";
-      $result = $connection->query($all);
+      $query = "SELECT * FROM Users";
+      $result = $connection->query($query);
       $connection = disconnect();
 
       return $result;
@@ -20,11 +21,14 @@
 
     static public function change_team($id, $team){
       $connection = connect();
-      $query = "UPDATE Users SET Team = '$team' WHERE ID = '$id'";
-      $result = $connection->query($query);
-      $connection = disconnect();
-
-      return $result;
+      // $query = "UPDATE Users SET Team = '$team' WHERE ID = '$id'";
+      // $result = $connection->query($query);
+      // $connection = disconnect();
+      
+      // return $result;
+      // echo "hejsan";
+      // var_dump($id);
+      // var_dump($team);
     }
 
     static public function delete_user($id){
@@ -40,5 +44,3 @@
       //Vad ska den här funktionen göra?
     }
   }
-
- ?>
