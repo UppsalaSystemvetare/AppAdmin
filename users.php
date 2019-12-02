@@ -49,15 +49,15 @@ include("include/models/users_model.php");
                 Change Team
             </button>
             <div class="dropdown-menu">
-                <button class="dropdown-item" type="button">Röd</button>
-                <button class="dropdown-item" type="button">Grön</button>
-                <button class="dropdown-item" type="button">Gul</button>
-                <button class="dropdown-item" type="button">Blå</button>
+                <button id="change-team-red" class="dropdown-item" type="button">Röd</button>
+                <button id="change-team-green" class="dropdown-item" type="button">Grön</button>
+                <button id="change-team-yellow" class="dropdown-item" type="button">Gul</button>
+                <button id="change-team-blue" class="dropdown-item" type="button">Blå</button>
             </div>
         </div>
         <button type="button" class="btn btn-danger">Delete  <i class="fas fa-trash-alt"></i></button>
         <input type="text" class="" placeholder="Search">
-        <button type="button" id="search" class="btn btn-secondary">Search</button>
+        <button type="button" id="search" class="btn btn-secondary">Search <i class="fas fa-search"></i></button>
     </div>
 
     <table class="table table-striped table-bordered table-sm" id="user-table">
@@ -76,7 +76,7 @@ include("include/models/users_model.php");
             while ($row = $result->fetch_assoc()) { ?>
                 <tr>
                     <td><input type="checkbox" aria-label="Checkbox for following text input"></td>
-                    <input id="ID" type="hidden" value="<?php echo $row["ID"] ?>">
+                    <input class="ID" type="hidden" value="<?php echo $row["ID"] ?>">
                     <td>Firstname Lastname</td>
                     <td><?php
                             switch ($row["Rank"]) {
