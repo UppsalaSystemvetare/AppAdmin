@@ -21,14 +21,9 @@
 
     static public function change_team($id, $team){
       $connection = connect();
-      // $query = "UPDATE Users SET Team = '$team' WHERE ID = '$id'";
-      // $result = $connection->query($query);
-      // $connection = disconnect();
-      
-      // return $result;
-      // echo "hejsan";
-      // var_dump($id);
-      // var_dump($team);
+      $query = "UPDATE Users SET Team = '$team' WHERE ID = '$id'";
+      $result = $connection->query($query);
+      $connection = disconnect();
     }
 
     static public function delete_user($id){

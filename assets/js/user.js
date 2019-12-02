@@ -44,6 +44,31 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+  $("#change-team-green").click(function() {
+    var users = selectedUsers();
+    users.forEach(element => {
+      changeTeam(element, 2);
+    });
+  });
+});
+$(document).ready(function() {
+  $("#change-team-yellow").click(function() {
+    var users = selectedUsers();
+    users.forEach(element => {
+      changeTeam(element, 3);
+    });
+  });
+});
+$(document).ready(function() {
+  $("#change-team-blue").click(function() {
+    var users = selectedUsers();
+    users.forEach(element => {
+      changeTeam(element, 4);
+    });
+  });
+});
+
 function changeTeam(ID, team) {
   $.post(
     "changeTeamDB.php",
