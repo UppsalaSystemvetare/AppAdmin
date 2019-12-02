@@ -1,5 +1,5 @@
 <?php
-class Users{
+  class Users{
     static public function get_users(){
       $connection = connect();
       $all = "SELECT * FROM Users";
@@ -15,6 +15,7 @@ class Users{
       $result = $connection->query($result);
       $connection = disconnect();
       return $result;
+    }
 
     //Vill vi kunna ta bort användare utifrån fler egenskaper än id, ex namn? C.
     static public function delete_user($id){
@@ -23,6 +24,7 @@ class Users{
       $result = $connection->query($result);
       $connection = disconnect();
       return $result;
+    }
 
     static public function search($value){
       $connection = connect();
@@ -35,4 +37,5 @@ class Users{
       return $result;
     }
   }
+
  ?>
