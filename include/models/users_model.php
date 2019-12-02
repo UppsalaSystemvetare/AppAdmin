@@ -9,10 +9,10 @@ class Users{
       return $result;
     }
 
-    static public function change_team($id, $rank){
+    static public function change_team($id, $team){
       $connection = connect();
-      $query = "UPDATE Users SET Rank = '$rank' WHERE ID = '$id'";
-      if(!$result = $connection->query($result)){
+      $query = "UPDATE Users SET Team = '$team' WHERE ID = '$id'";
+      if(!$result = $connection->query($query)){
         echo("Query error: " . $result->query_error);
         header("Location:../users.php");
       }
