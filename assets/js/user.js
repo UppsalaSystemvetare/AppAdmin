@@ -5,26 +5,27 @@ $(document).on("click", "tr :checkbox", function(event) {
     .toggleClass("table-primary");
 });
 
+
+//delete listener
 $(document).ready(function() {
   $("#delete").click(function() {
-    $("#user-table")
-      .find("tr")
-      .each(function() {
-        var row = $(this);
-        if (row.find('input[type="checkbox"]').is(":checked")) {
-          console.log(
-            $(row)
-              .find(".ID")
-              .val()
-          );
-        }
-      });
+    var users = selectedUsers();
+    users.forEach(element => {
+      deleteUser(element);
+    });
   });
 });
 
-$(document).ready(function() {
-  $("#delete").click(function() {});
-});
+//delete function
+function deleteUser(ID) {
+  $.post(
+    "deleteUserDB.php",
+    { ID: ID},
+    function(data) {
+      location.reload();
+    }
+  );
+}
 
 //change team listeners
 $(document).ready(function() {

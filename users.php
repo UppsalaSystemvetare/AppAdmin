@@ -55,7 +55,7 @@ include("include/models/users_model.php");
                 <button id="change-team-blue" class="dropdown-item" type="button">Blå</button>
             </div>
         </div>
-        <button type="button" class="btn btn-danger">Delete  <i class="fas fa-trash-alt"></i></button>
+        <button id="delete" type="button" class="btn btn-danger">Delete  <i class="fas fa-trash-alt"></i></button>
         <input type="text" class="" placeholder="Search">
         <button type="button" id="search" class="btn btn-secondary">Search <i class="fas fa-search"></i></button>
     </div>
