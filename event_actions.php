@@ -32,7 +32,8 @@
 			echo("Error description: " . mysqli_error($connection));
 		} 
 	}
-	
+
+	//remove($Id);
 	function Remove($Id)
 	{	
 		$connection = connect();
