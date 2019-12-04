@@ -64,9 +64,9 @@ include("include/models/users_model.php");
         <thead id="table-header">
             <tr>
                 <th scope="col">Select</th>
-                <th scope="col">Name</th>
-                <th scope="col">Rank</th>
-                <th scope="col">Team</th>
+                <th id="sort-name" scope="col">Name</th>
+                <th id="sort-rank" scope="col">Rank</th>
+                <th id="sort-team" scope="col">Team</th>
             </tr>
         </thead>
         <tbody>

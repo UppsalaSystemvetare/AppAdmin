@@ -41,3 +41,15 @@ th {
 #icon-blue {
   color: blue;
 }
+
+#sort-name {
+  cursor: pointer;
+} 
+
+#sort-rank {
+  cursor: pointer;
+} 
+
+#sort-team {
+  cursor: pointer;
+} 

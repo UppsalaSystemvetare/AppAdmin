@@ -136,3 +136,25 @@ function selectedUsers() {
     });
   return users;
 }
+
+$(document).ready(function() {
+  $("#sort-name").click(function() {
+    alert("Sort by name");
+    sortTable($('#user-table'),'asc');
+  });
+});
+
+$(document).ready(function() {
+  $("#sort-rank").click(function() {
+    alert("Sort by rank");
+    sortTable($('#user-table'),'asc');
+  });
+});
+
+$(document).ready(function() {
+  $("#sort-team").click(function() {
+    alert("Sort by team");
+    sortTable($('#user-table'),'asc');
+  });
+});
+
