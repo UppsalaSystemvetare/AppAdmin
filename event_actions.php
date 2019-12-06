@@ -1,14 +1,12 @@
 <?php
 	include("include/header.php");
-
 	//Add("PubRundan", "1995-09-11", "17:00", "Uppsala", "PubRundan med uppsala", "30", "0");   // Fungerar för att lägga till i databasen.
-	
+	//Undefined variable ibland?
 	function Add($title, $dateTime, $startTime, $location, $description, $patron1, $patron2)
 	{	
 		$connection = connect();
 		$all = "SELECT * FROM Events";
 		$result = $connection->query($all);
-		//$connection = disconnect();
 		  if($connection->connect_error)
 		{
 			die("Connection failed: ".$connection.connect_error);
@@ -31,6 +29,7 @@
 		{
 			echo("Error description: " . mysqli_error($connection));
 		} 
+		$connection = disconnect();
 	}
 
 	//remove($Id);
@@ -39,34 +38,34 @@
 		$connection = connect();
 		$all = "SELECT * FROM Events";
 		$result = $connection->query($all);
-		//$connection = disconnect();
+		
 		  if($connection->connect_error)
 		{
 			die("Connection failed: ".$connection.connect_error); 
 		}
 		
 		$Id = mysqli_real_escape_string($connection, $_POST['Id']); 
-		$sql = "DELETE FROM Events WHERE Id=$Id";
+		$sql = "DELETE FROM Events WHERE Id='$Id'";
 		
 		if(mysqli_query($connection, $sql))
 		{
-			echo ("Success/deleted"); //Kan raderas om funktionen fungerar utan problem.
+			echo ("Success/deleted"); 
 			header('location: events.php');
 		}
 		else
 		{
 			echo("Error description/error when trying to delete: " . mysqli_error($connection));
 		} 
-
+		$connection = disconnect();
 	}
 	
 
 
-	/* function Update(($id, $title, $dateTime, $startTime, $location, $description, $patron1, $patron2)
+	 function Update($id, $title, $dateTime, $startTime, $location, $description, $patron1, $patron2)
 	{	
 	    if($connection->connect_error)
 		{
-			die("Connection failed: ".$connection.connect_error); // fixa connection.connect_error.
+			die("Connection failed: ".$connection.connect_error); 
 		}
 		
 		$id = mysqli_real_escape_string($connection, $_POST['id']);
@@ -89,11 +88,11 @@
 		{
 			echo "Insertion/edit error";
 		} 	
+		$connection = disconnect();
+	}	
 
-	}
-	
-//echo "<div id= $row['id']>" . "<$row['id']" .  >
-*/
 
 ?> 
+
+
 
