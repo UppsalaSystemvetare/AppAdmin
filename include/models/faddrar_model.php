@@ -37,7 +37,7 @@
       //Vad ska den här funktionen göra?
     }
 
-    static public function change_number(){
+    static public function change_number($id, $number){
       $connection = connect();
       $query = "UPDATE Faddrar SET Number = '$number' WHERE id = '$id'";
       $result = $connection->query($query);
