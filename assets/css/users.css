@@ -1,0 +1,55 @@
+.bg-blue {
+  background-color: #036;
+}
+
+.navbar {
+  font-size: 32px;
+}
+
+.btn-group {
+  position: sticky;
+  top: 0%;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: white;
+}
+
+.dropdown-toggle {
+  border-radius: 0;
+}
+
+#table-header {
+  background-color: #6c757d;
+}
+
+#icon-red {
+  color: red;
+}
+
+#icon-green {
+  color: green;
+}
+
+#icon-yellow {
+  color: yellow;
+}
+
+#icon-blue {
+  color: blue;
+}
+
+#sort-name {
+  cursor: pointer;
+} 
+
+#sort-rank {
+  cursor: pointer;
+} 
+
+#sort-team {
+  cursor: pointer;
+} 
