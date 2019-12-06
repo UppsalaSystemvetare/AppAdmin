@@ -53,6 +53,7 @@ include("include/models/users_model.php");
                 <button id="change-team-green" class="dropdown-item" type="button">Grön</button>
                 <button id="change-team-yellow" class="dropdown-item" type="button">Gul</button>
                 <button id="change-team-blue" class="dropdown-item" type="button">Blå</button>
+                <button id="change-team-none" class="dropdown-item" type="button">Inget</button>
             </div>
         </div>
         <button id="delete" type="button" class="btn btn-danger">Delete  <i class="fas fa-trash-alt"></i></button>
@@ -60,7 +61,7 @@ include("include/models/users_model.php");
         <button type="button" id="search" class="btn btn-secondary">Search <i class="fas fa-search"></i></button>
     </div>
 
-    <table class="table table-striped table-bordered table-sm" id="user-table">
+    <table class="table table-striped table-bordered table-sm sortable" id="user-table">
         <thead id="table-header">
             <tr>
                 <th scope="col">Select</th>
