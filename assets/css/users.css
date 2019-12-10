@@ -53,3 +53,7 @@ th {
 #sort-team {
   cursor: pointer;
 } 
+
+#change-number {
+  /* visibility: hidden; */
+}

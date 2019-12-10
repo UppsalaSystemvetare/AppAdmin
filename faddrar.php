@@ -116,7 +116,7 @@ include("include/models/faddrar_model.php");
                                     echo ' <i class="fas fa-square"></i> Inget lag valt';
                             }
                             ?></td>
-                    <td> <?php echo $row["Number"]; ?></td>
+                    <td id="show-button"> <?php echo $row["Number"] . ' <button id="change-number" class="btn btn-secondary btn-sm" type="button">Change</button>'; ?></td>
                 </tr>
             <?php } ?>
 

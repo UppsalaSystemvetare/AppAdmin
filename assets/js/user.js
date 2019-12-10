@@ -158,3 +158,8 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+  $("#show-button").click(function() {
+    $("change-number").toggle();
+  });
+});
