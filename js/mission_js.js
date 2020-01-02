@@ -24,3 +24,13 @@ function display(going_to) {
         document.getElementById("create_missions").className = "table"
     }
 }
+
+function delete_mission(id){
+    $.post("deleteMissionsDB.php", { ID: id }, function(data) {
+        location.reload();
+    });
+}
+
+function change_mission(id){
+
+}

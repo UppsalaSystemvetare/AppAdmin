@@ -28,18 +28,22 @@ include("include/models/missions_model.php");
                     <tr>
                         <th>Id</th>
                         <th>Beskrivning</th>
-                        <th>Poängvärde (0 för användardefinierat)</th>
+                        <th>Poängvärde (0 om användaren själv ska skriva in)</th>
+                        <th>Ändra</th>
+                        <th>Ta bort</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="all_missions_body">
                     <?php 
-                        $all_missions = get_all_assoc();
-                        while($row = $all_missions->fetch_assoc()) { 
+                        $result = Missions::get_missions();
+                        while($row = $result->fetch_assoc()) { 
                     ?>
                         <tr>
                             <td><?php echo $row["Id"]?></td>
                             <td><?php echo $row["Description"]?></td>
                             <td><?php echo $row["PointValue"]?></td>
+                            <td><button class="btn btn-secondary" id="<?php echo $row['Id'] ?>" onclick="change_mission(<?php echo $row['Id'] ?>)">Ändra</button></td>
+                            <td><button class="btn btn-danger" id="<?php echo $row['Id'] ?>" onclick="delete_mission(<?php echo $row['Id'] ?>)">Ta bort</button></td>
                         </tr>
                     <?php }?>
                     </tbody>
