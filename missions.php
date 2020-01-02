@@ -50,10 +50,10 @@ include("include/models/missions_model.php");
                 </table>
                 <div id="create_missions" class="table hidden">
                     <h2>Create new mission:</h2>
-                    <form action="/action_page.php">
+                    <form action="createMissionsDB.php">
                         <div class="input-group input-group-lg">
-                            <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Beskrivning...">
-                            <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Poängvärde...">
+                            <input name="DESC" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Beskrivning...">
+                            <input name="POINTS" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Poängvärde...">
                         </div> 
                         <input class="btn btn-primary" type="submit" value="Submit">
                     </form> 

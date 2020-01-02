@@ -11,6 +11,13 @@ class Missions{
         return $result;
     }
 
+    static public function create_mission($desc, $points){
+        $connection = connect();
+        $query = "INSERT INTO `Misson` (`Description`, `PointValue`) VALUES ('$desc', '$points')";
+        $result = $connection->query($query);
+        $connection = disconnect();
+    }
+
     static public function change_mission($id, $desc, $points){
         $connection = connect();
         $query = "UPDATE Misson SET Description = '$desc', PointValue = '$points' WHERE ID = '$id'"; // TODO ändra alla lags koppling med uppdraget
