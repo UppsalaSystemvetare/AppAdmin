@@ -5,4 +5,4 @@
     if(isset($desc) && isset($points)){
         Missions::create_mission($desc, $points);
     }
-    header("missions.php");
+    header('Location: missions.php');
