@@ -11,16 +11,9 @@ class Missions{
         return $result;
     }
 
-    static public function change_rank($id, $rank){
+    static public function change_mission($id, $desc, $points){
         $connection = connect();
-        $query = "UPDATE Users SET Rank = '$rank' WHERE ID = '$id'";
-        $result = $connection->query($query);
-        $connection = disconnect();
-    }
-
-    static public function change_team($id, $team){
-        $connection = connect();
-        $query = "UPDATE Users SET Team = '$team' WHERE ID = '$id'";
+        $query = "UPDATE Misson SET Description = '$desc', PointValue = '$points' WHERE ID = '$id'"; // TODO ändra alla lags koppling med uppdraget
         $result = $connection->query($query);
         $connection = disconnect();
     }

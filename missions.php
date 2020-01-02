@@ -63,4 +63,3 @@ include("include/models/missions_model.php");
     </body>
     <script src="js/mission_js.js"></script>
 </html>
-

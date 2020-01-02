@@ -31,6 +31,20 @@ function delete_mission(id){
     });
 }
 
-function change_mission(id){
-
+function change_mission(id, desc, points){
+    var correctInput = false;
+    while(!correctInput){
+        var newDesc = prompt("Ny beskrivning:", desc);
+        var newPoints = prompt("Ändra poäng:", points);
+        if (((!newDesc == null || !newDesc == "") && (!newPoints == null || !newPoints == "" )) && newPoints >= 0) { 
+            desc = newDesc;
+            points = newPoints;
+            correctInput = true;
+        } else{
+            alert("Bad input. Inga fält får lämnas tomma och poängen måste vara en siffra.")
+        }
+    }
+    $.post("changeMissionsDB.php", { ID: id, DESC : desc, POINTS : points }, function(data) {
+        location.reload();
+    });
 }
