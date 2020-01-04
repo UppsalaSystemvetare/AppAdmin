@@ -1,3 +1,19 @@
+
+$(document).on("click", "tr :checkbox", function(event) {
+    $(this)
+      .closest("tr")
+      .toggleClass("table-primary");
+  });
+  //delete listener
+$(document).ready(function() {
+    $("#delete").click(function() {
+      var users = selectedUsers();
+      users.forEach(element => {
+        delete_mission(element);
+      });
+    });
+  });
+
 function change_tab(going_to) {
     swap_classes(going_to);
     display(going_to);
@@ -48,3 +64,20 @@ function change_mission(id, desc, points){
         location.reload();
     });
 }
+  //get selected users
+  function selectedUsers() {
+    var users = [];
+    $("#all_missions")
+      .find("tr")
+      .each(function() {
+        var row = $(this);
+        if (row.find('input[type="checkbox"]').is(":checked")) {
+          users.push(
+            $(row)
+              .find(".Id")
+              .val()
+          );
+        }
+      });
+    return users;
+  }

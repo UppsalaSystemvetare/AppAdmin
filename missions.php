@@ -31,6 +31,7 @@ include("include/models/missions_model.php");
                         <th>Poängvärde (0 om användaren själv ska skriva in)</th>
                         <th>Ändra</th>
                         <th>Ta bort</th>
+                        <th>Markera</th>
                     </tr>
                     </thead>
                     <tbody id="all_missions_body">
@@ -39,13 +40,18 @@ include("include/models/missions_model.php");
                         while($row = $result->fetch_assoc()) { 
                     ?>
                         <tr>
+                            
                             <td><?php echo $row["Id"]?></td>
                             <td><?php echo $row["Description"]?></td>
                             <td><?php echo $row["PointValue"]?></td>
                             <td><button class="btn btn-secondary" id="<?php echo $row['Id'] ?>" onclick="change_mission(<?php echo $row['Id'] ?>)">Ändra</button></td>
                             <td><button class="btn btn-danger" id="<?php echo $row['Id'] ?>" onclick="delete_mission(<?php echo $row['Id'] ?>)">Ta bort</button></td>
+                            <td><input type="checkbox"></td>
+                            <input class="Id" type="hidden" value="<?php echo $row["Id"] ?>">
                         </tr>
+                       
                     <?php }?>
+                    <button class="btn btn-primary" type="button" id="delete" >Ta bort markerade</button>
                     </tbody>
                 </table>
                 <div id="create_missions" class="table hidden">
