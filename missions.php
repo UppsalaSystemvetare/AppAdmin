@@ -40,7 +40,6 @@ include("include/models/missions_model.php");
                         while($row = $result->fetch_assoc()) { 
                     ?>
                         <tr>
-                            
                             <td><?php echo $row["Id"]?></td>
                             <td><?php echo $row["Description"]?></td>
                             <td><?php echo $row["PointValue"]?></td>
@@ -56,17 +55,13 @@ include("include/models/missions_model.php");
                 </table>
                 <div id="create_missions" class="table hidden">
                     <h2>Create new mission:</h2>
-                    <form action="createMissionsDB.php" method="get">
+                    <form action="createMissionsDB.php" method="post" enctype="multipart/form-data">
                         <div class="input-group input-group-lg">
                             <input name="DESC" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Beskrivning...">
                             <input name="POINTS" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Poängvärde...">
+                            <input name="FILE" type="file">
+                            <input class="btn btn-primary" type="submit" value="Submit">
                         </div> 
-                        <input class="btn btn-primary" type="submit" value="Submit">
-                    </form> 
-                    <h2>Add excel file: (funkar ej)</h2>
-                    <form action="createMissionsDB.php" method="post">
-                        <input type="file" name="FILE">
-                        <input class="btn btn-primary" type="submit" value="Submit">
                     </form>
                 </div>
             </div>
