@@ -7,7 +7,7 @@
         $points = $_POST["POINTS"];
         Missions::create_mission($desc, $points);
     }
-    if(isset($_FILES["FILE"]) && isset($_FILES["FILE"]["tmp_name"])){
+    else if(isset($_FILES["FILE"]) && isset($_FILES["FILE"]["tmp_name"])){
         $document = PHPExcel_IOFactory::load($_FILES["FILE"]["tmp_name"]);
         $Sheet = $document->getActiveSheet()->toArray(null);
         for($i = 1; $i < count($Sheet); $i++){
