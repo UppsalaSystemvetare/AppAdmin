@@ -11,13 +11,11 @@
     <body>
         <div class="container">
             <h1>Login</h1>
-            <form action="include/models/login_process.php" method="post">
-                <div class="input-group input-group-lg">
-                    <input name="ID" type="email" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="email">
-                    <input name="PASS" type="password" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="password">
-                </div> 
-                <input class="btn btn-primary" type="submit" value="Submit">
+            <input id="NAME" type="email" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="email">
+            <input id="PASS" type="password" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="password">  
+            <button class="btn btn-primary" type="submit" value="Submit" onclick="login()">Logga in</button>
             </form> 
         </div>
     </body>
+    <script src="js/login_js.js"></script>
 </html>
