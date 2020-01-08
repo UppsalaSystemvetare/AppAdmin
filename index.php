@@ -14,14 +14,14 @@ include("include/models/header.php");
     <body>
         <div id="container">
             <h2>
-            Hej och välkommen till admin!! //Viktor
-            //d
+            Hej och välkommen till admin - [<?php echo $_SESSION['user'] ?>]!
 			</h2>
         </div>
         <div id="container">
             <a href="events.php">Events</a>
             <a href="users.php">Users</a>
             <a href="missions.php">Missions</a>
+            <a href="include/models/logout_process.php">Logga ut</a>
         </div>
     </body>
 </html>

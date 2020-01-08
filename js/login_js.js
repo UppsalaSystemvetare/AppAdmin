@@ -8,7 +8,7 @@ function login(){
         type: 'post',
         data: payload,
         success: function successLogin(data, status, xhr){
-            var payload = { ID : "1"};
+            var payload = { ID : data.user_id};
             $.ajax({
                 url: 'include/models/login_process.php',
                 dataType: 'json',
