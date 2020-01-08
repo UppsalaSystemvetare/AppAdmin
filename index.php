@@ -22,6 +22,7 @@ include("include/header.php");
             <a href="events.php">Events</a>
             <a href="users.php">Users</a>
             <a href="missions.php">Missions</a>
+            <a href="weekmissions.php">Week Missions</a>
         </div>
     </body>
 </html>

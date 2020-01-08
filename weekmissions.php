@@ -1,10 +1,10 @@
 <?php
-include("include/models/missions_model.php");
+include("include/models/weekmissions_model.php");
 ?>
 
 <html lang="en">
     <head>
-        <title>Admin Inspark Missions</title>
+        <title>Admin Inspark Week Missions</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -38,7 +38,7 @@ include("include/models/missions_model.php");
                     </thead>
                     <tbody id="all_missions_body">
                     <?php 
-                        $result = Missions::get_missions();
+                        $result = WeekMissions::get_missions();
                         while($row = $result->fetch_assoc()) { 
                     ?>
                         <tr>

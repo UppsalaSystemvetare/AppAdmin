@@ -1,7 +1,7 @@
 <?php 
 include("header.php");
 
-class Missions{
+class WeekMissions{
 
     static public function get_missions(){
         $connection = connect();
