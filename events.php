@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-include("include/header.php");
+include("include/models/header.php");
 
 $connection = connect();
 $all = "SELECT * FROM Events";

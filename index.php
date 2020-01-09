@@ -1,6 +1,10 @@
 <!DOCTYPE html>
+
+
 <?php 
 include("include/models/header.php");
+
+
 ?>
 <html lang="en">
     <head>
@@ -14,8 +18,12 @@ include("include/models/header.php");
     <body>
         <div id="container">
             <h2>
-            Hej och välkommen till admin - [<?php echo $_SESSION['user'] ?>]!
-			</h2>
+
+
+            Hej och välkommen till admin!! //Viktor USERS
+            </h2>
+
+
         </div>
         <div id="container">
             <a href="events.php">Events</a>

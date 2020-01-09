@@ -18,6 +18,11 @@ $(document).ready(function() {
 
 //delete function
 function deleteUser(ID) {
+
+  $.post("deleteUserDB.php", { ID: ID }, function(data) {
+    location.reload();
+  });
+=======
   $.post(
     "deleteUserDB.php",
     { ID: ID},
@@ -53,11 +58,22 @@ $(document).ready(function() {
     });
   });
 });
+
 $(document).ready(function() {
   $("#change-team-blue").click(function() {
     var users = selectedUsers();
     users.forEach(element => {
       changeTeam(element, 4);
+    });
+  });
+});
+
+
+$(document).ready(function() {
+  $("#change-team-none").click(function() {
+    var users = selectedUsers();
+    users.forEach(element => {
+      changeTeam(element, 0);
     });
   });
 });
@@ -71,6 +87,7 @@ function changeTeam(ID, team) {
       location.reload();
     }
   );
+
 }
 
 //change rank listeners
@@ -112,6 +129,7 @@ $(document).ready(function() {
 
 //change rank function
 function changeRank(ID, rank) {
+
   $.post(
     "changeRankDB.php",
     { ID: ID, Rank: rank },
@@ -119,6 +137,7 @@ function changeRank(ID, rank) {
       location.reload();
     }
   );
+
 }
 
 //get selected users
@@ -129,13 +148,89 @@ function selectedUsers() {
     .each(function() {
       var row = $(this);
       if (row.find('input[type="checkbox"]').is(":checked")) {
+
         users.push($(row)
           .find(".ID")
           .val());
+
       }
     });
   return users;
 }
+
+
+// $(document).ready(function() {
+//   $("#sort-name").click(function() {
+//     alert("Sort by name");
+//     sortTable($('#user-table'),'asc');
+//   });
+// });
+
+// $(document).ready(function() {
+//   $("#sort-rank").click(function() {
+//     alert("Sort by rank");
+//     sortTable($('#user-table'),'asc');
+//   });
+// });
+
+// $(document).ready(function() {
+//   $("#sort-team").click(function() {
+//     alert("Sort by team");
+//     sortTable($('#user-table'),'asc');
+//   });
+// });
+
+$(document).ready(function() {
+  $(".sortable thead").on("click", "th", function() {
+    // Which column is this?
+    var index = $(this).index();
+    if (index > 0) {
+
+      console.log(index);
+      // Get the tbody
+      var tbody = $(this)
+        .closest("table")
+        .find("tbody");
+
+      // Disconnect the rows and get them as an array
+      var rows = tbody
+        .children()
+        .detach()
+        .get();
+
+        if (index = 1) {
+          rows.sort(function(left, right) {
+            //Get the text of the relevant td from left and right
+            var $left = $(left).children().eq(index);
+            var $right = $(right).children().eq(index);
+            console.log($left);
+            console.log($right);
+            return $left.text().localeCompare($right.text());
+          });
+
+        }
+        if (index = 2) {
+          rows.sort(function(left, right) {
+            //Get the text of the relevant td from left and right
+            var $left = $(left).children().eq(index);
+            var $right = $(right).children().eq(index);
+            console.log($left);
+            console.log($right);
+            return $left.text().localeCompare($right.text());
+          });
+        } 
+        if (index = 3) {
+          rows.sort();
+          rows.reverse();
+        }
+      // Sort it
+     
+
+      // Put them back in the tbody
+      tbody.append(rows);
+    }
+  });
+});
 
 $(document).ready(function() {
   $("#sort-name").click(function() {

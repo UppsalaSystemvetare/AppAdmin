@@ -44,16 +44,14 @@ th {
 
 #sort-name {
   cursor: pointer;
-}
+
+} 
 
 #sort-rank {
   cursor: pointer;
-}
+} 
 
 #sort-team {
   cursor: pointer;
-}
+} 
 
-#change-number {
-  visibility: hidden;
-}
