@@ -20,7 +20,7 @@ include("include/models/header.php");
             <h2>
 
 
-            Hej och välkommen till admin!! //Viktor USERS
+            Hej och välkommen till admin!! USER - [<?php echo $_SESSION['user']; ?>]
             </h2>
 
 
