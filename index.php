@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php 
+<?php
 include("include/header.php");
 ?>
 <html lang="en">
@@ -15,12 +15,12 @@ include("include/header.php");
         <div id="container">
             <h2>
             Hej och välkommen till admin!! //Viktor
-            //d
 			</h2>
         </div>
         <div id="container">
             <a href="events.php">Events</a>
             <a href="users.php">Users</a>
+            <a href="faddrar.php">Faddrar</a>
             <a href="missions.php">Missions</a>
         </div>
     </body>
