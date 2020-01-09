@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
+
 <?php 
 include("include/models/header.php");
+
 
 ?>
 <html lang="en">
@@ -17,8 +19,10 @@ include("include/models/header.php");
         <div id="container">
             <h2>
 
+
             Hej och välkommen till admin!! //Viktor USERS
             </h2>
+
 
         </div>
         <div id="container">
@@ -26,6 +30,8 @@ include("include/models/header.php");
             <a href="users.php">Users</a>
             <a href="faddrar.php">Faddrar</a>
             <a href="missions.php">Missions</a>
+            <a href="weekmissions.php">Week Missions</a>
+            <a href="include/models/logout_process.php">Logga ut</a>
         </div>
     </body>
 </html>
