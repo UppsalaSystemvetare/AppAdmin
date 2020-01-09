@@ -1,10 +1,10 @@
 <?php
-include("include/models/missions_model.php");
+include("include/models/weekmissions_model.php");
 ?>
 
 <html lang="en">
     <head>
-        <title>Admin Inspark Missions</title>
+        <title>Admin Inspark Week Missions</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -17,30 +17,13 @@ include("include/models/missions_model.php");
     <body>
         <div id="container">
             <div class="header">
-           
-            </div> 
-            <div id="create_missions" class="table_hidden">
-                    <h2>Create new mission:</h2>
-                    <form action="createMissionsDB.php" method="post" enctype="multipart/form-data">
-                        <div class="input-group input-group-lg">
-                            <input name="DESC" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Beskrivning...">
-                            <input name="POINTS" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Poängvärde...">
-                            <input class="btn btn-primary" type="submit" value="Submit">
-                        </div> 
-                    </form>
+                <div class="section-button selected" id="all_missions_button">
+                    <h1 onclick="change_tab('table')">All Missions</h1>
                 </div>
-                <div id="create_multiple_missions" class="table_create_multiple">
-                    <h2>Create multiple new mission:</h2>
-                    <form action="createMissionsDB.php" method="post" enctype="multipart/form-data">
-                        <div class="input-group input-group-lg">
-                            <input name="FILE" type="file">
-                            <input class="btn btn-primary" type="submit" value="Submit">
-                        </div> 
-                    </form>
-                </div>     
-                <div class="ta_bort_markerade">
-                <button class="btn btn-primary" type="button" id="delete" >Ta bort markerade</button>   
-                </div> 
+                <div class="section-button" id="create_missions_button">
+                    <h1 onclick="change_tab('create')">Create Missions</h1>
+                </div>
+            </div>        
             <div class="content">
                 <table class="table" id="all_missions">
                     <thead>
@@ -54,12 +37,10 @@ include("include/models/missions_model.php");
                     </tr>
                     </thead>
                     <tbody id="all_missions_body">
-                  
                     <?php 
-                        $result = Missions::get_missions();
+                        $result = WeekMissions::get_missions();
                         while($row = $result->fetch_assoc()) { 
                     ?>
-                   
                         <tr>
                             <td><?php echo $row["Id"]?></td>
                             <td><?php echo $row["Description"]?></td>
@@ -71,10 +52,28 @@ include("include/models/missions_model.php");
                         </tr>
                        
                     <?php }?>
-                    
+                    <button class="btn btn-primary" type="button" id="delete" >Ta bort markerade</button>
                     </tbody>
                 </table>
-               
+                <div id="create_missions" class="table hidden">
+                    <h2>Create new mission:</h2>
+                    <form action="createMissionsDB.php" method="post" enctype="multipart/form-data">
+                        <div class="input-group input-group-lg">
+                            <input name="DESC" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Beskrivning...">
+                            <input name="POINTS" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Poängvärde...">
+                            <input class="btn btn-primary" type="submit" value="Submit">
+                        </div> 
+                    </form>
+                </div>
+                <div id="create_multiple_missions" class="table_hidden">
+                    <h2>Create multiple new mission:</h2>
+                    <form action="createMissionsDB.php" method="post" enctype="multipart/form-data">
+                        <div class="input-group input-group-lg">
+                            <input name="FILE" type="file">
+                            <input class="btn btn-primary" type="submit" value="Submit">
+                        </div> 
+                    </form>
+                </div>
             </div>
         </div>
     </body>
