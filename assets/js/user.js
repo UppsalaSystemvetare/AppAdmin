@@ -5,6 +5,7 @@ $(document).on("click", "tr :checkbox", function(event) {
     .toggleClass("table-primary");
 });
 
+
 //delete listener
 $(document).ready(function() {
   $("#delete").click(function() {
@@ -17,9 +18,18 @@ $(document).ready(function() {
 
 //delete function
 function deleteUser(ID) {
+
   $.post("deleteUserDB.php", { ID: ID }, function(data) {
     location.reload();
   });
+=======
+  $.post(
+    "deleteUserDB.php",
+    { ID: ID},
+    function(data) {
+      location.reload();
+    }
+  );
 }
 
 //change team listeners
@@ -58,6 +68,7 @@ $(document).ready(function() {
   });
 });
 
+
 $(document).ready(function() {
   $("#change-team-none").click(function() {
     var users = selectedUsers();
@@ -69,9 +80,14 @@ $(document).ready(function() {
 
 //change team function
 function changeTeam(ID, team) {
-  $.post("changeTeamDB.php", { ID: ID, Team: team }, function(data) {
-    location.reload();
-  });
+  $.post(
+    "changeTeamDB.php",
+    { ID: ID, Team: team },
+    function(data) {
+      location.reload();
+    }
+  );
+
 }
 
 //change rank listeners
@@ -113,9 +129,15 @@ $(document).ready(function() {
 
 //change rank function
 function changeRank(ID, rank) {
-  $.post("changeRankDB.php", { ID: ID, Rank: rank }, function(data) {
-    location.reload();
-  });
+
+  $.post(
+    "changeRankDB.php",
+    { ID: ID, Rank: rank },
+    function(data) {
+      location.reload();
+    }
+  );
+
 }
 
 //get selected users
@@ -126,15 +148,16 @@ function selectedUsers() {
     .each(function() {
       var row = $(this);
       if (row.find('input[type="checkbox"]').is(":checked")) {
-        users.push(
-          $(row)
-            .find(".ID")
-            .val()
-        );
+
+        users.push($(row)
+          .find(".ID")
+          .val());
+
       }
     });
   return users;
 }
+
 
 // $(document).ready(function() {
 //   $("#sort-name").click(function() {
@@ -207,4 +230,36 @@ $(document).ready(function() {
       tbody.append(rows);
     }
   });
+});
+
+$(document).ready(function() {
+  $("#sort-name").click(function() {
+    alert("Sort by name");
+    sortTable($('#user-table'),'asc');
+  });
+});
+
+$(document).ready(function() {
+  $("#sort-rank").click(function() {
+    alert("Sort by rank");
+    sortTable($('#user-table'),'asc');
+  });
+});
+
+$(document).ready(function() {
+  $("#sort-team").click(function() {
+    alert("Sort by team");
+    sortTable($('#user-table'),'asc');
+  });
+});
+
+$(document).ready(function() {
+  $('.show-button').hover(
+    function () {
+      $('.change-number').show();
+    }, 
+    function () {
+      $('.change-number').hide();
+    }
+  );
 });
