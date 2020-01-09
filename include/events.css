@@ -1,0 +1,20 @@
+.edit_window{
+    background-color: green;
+}
+
+.nytt_event{
+    background-color: #008ae6;
+    color: white;
+    width: 30%;
+    margin-top:20px;
+    padding: 10px;
+}
+
+.btn_edit{
+    background-color: #008ae6;
+    color: white;
+}
+
+.btn_edit:hover {
+    background-color: #b3e0ff;
+}
