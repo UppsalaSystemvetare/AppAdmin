@@ -6,6 +6,7 @@ include("include/html/menu.php");
     <div class="btn-group" role="group" aria-label="Basic example">
         <button class="btn btn-secondary" type="button">Modify Selected Mission</button>
         <button class="btn btn-secondary" type="button" onclick="scrollToCreateMissions()">Add New Missions</button>
+        <button class="btn btn-secondary" type="button" onclick="scrollToTop()">Back To Top</button>
         <button class="btn btn-danger" type="button" id="delete">Delete <i class="fas fa-trash-alt"></i></button>
     </div>
         
@@ -63,7 +64,7 @@ include("include/html/menu.php");
             <input class="btn btn-primary" type="submit" value="Submit">
         </form>
     </div>     
-    </div>
+</div>
 </body>
 <script src="assets/js/mission.js"></script>
 </html>

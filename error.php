@@ -1,0 +1,1 @@
+you do not have permission - <a href="login.php">back to login</a>

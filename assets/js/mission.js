@@ -7,26 +7,13 @@ $(document).ready(function() {
     document.getElementById('weekmissions-menu').className = "nav-item nav-link";
 })
 
+// Scroll to
 function scrollToCreateMissions(){
     var distance = $('#create-missions').offset().top;
     $('html,body').animate({scrollTop:distance},500);
 }
 
-$(document).on("click", "tr :checkbox", function(event) {
-    $(this)
-      .closest("tr")
-      .toggleClass("table-primary");
-  });
-  //delete listener
-$(document).ready(function() {
-    $("#delete").click(function() {
-      var users = selectedUsers();
-      users.forEach(element => {
-        delete_mission(element);
-      });
-    });
-  });
-
+// TODO: Detect if bottom of page, change button functionality
 
 
 function delete_mission(id){

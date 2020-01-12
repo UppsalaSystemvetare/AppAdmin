@@ -7,6 +7,7 @@ include("include/html/menu.php");
     <div class="btn-group" role="group" aria-label="Basic example">
         <button class="btn btn-secondary" type="button">Modify Mission</button>
         <button class="btn btn-secondary" type="button" onclick="scrollToCreateWeekMissions()">Add New Missions</button>
+        <button class="btn btn-secondary" type="button" onclick="scrollToTop()">Back To Top</button>
         <button class="btn btn-danger" type="button" id="delete">Delete <i class="fas fa-trash-alt"></i></button>
     </div>
         

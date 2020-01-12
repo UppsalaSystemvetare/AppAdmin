@@ -11,7 +11,7 @@ include("include/html/menu.php");
             <h2>
 
 
-            Hej och välkommen till admin!! USER - [<?php echo $_SESSION['user']; ?>]
+            Hej och välkommen till admin!! USER - [<?php echo $_SESSION['user']; ?>], with rank - [<?php echo $_SESSION['rank']; ?>]
             </h2>
 
 
