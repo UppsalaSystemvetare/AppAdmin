@@ -1,12 +1,11 @@
-
 <?php
 include("include/models/missions_model.php");
 include("include/html/menu.php");
 ?>
 
     <div class="btn-group" role="group" aria-label="Basic example">
-        <button class="btn btn-secondary" type="button">Modify Mission</button>
-        <button class="btn btn-secondary" type="button" onclick="scrollToCreate()">Add New Missions</button>
+        <button class="btn btn-secondary" type="button">Modify Selected Mission</button>
+        <button class="btn btn-secondary" type="button" onclick="scrollToCreateMissions()">Add New Missions</button>
         <button class="btn btn-danger" type="button" id="delete">Delete <i class="fas fa-trash-alt"></i></button>
     </div>
         
@@ -44,26 +43,26 @@ include("include/html/menu.php");
              
     <div class="content" id="create-missions">
         <h2>Create single new mission:</h2>
-            <form action="createMissionsDB.php" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="desc">Description</label>
-                    <input id="desc" name="DESC" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Description of the mission">
-                </div>
-                <div class="form-group">
-                    <label for="point">Point Value</label>
-                    <input id="point" name="POINTS" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Poängvärde...">
-                </div> 
-                <input class="btn btn-primary" type="submit" value="Submit">
-            </form>
+        <form action="createMissionsDB.php" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="desc">Description</label>
+                <input id="desc" name="DESC" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Description of the mission">
+            </div>
+            <div class="form-group">
+                <label for="point">Point Value</label>
+                <input id="point" name="POINTS" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Poängvärde...">
+            </div> 
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
         <h1> - OR - </h1>
         <h2>Create multiple new missions: (.xls, .xlsx)</h2>
-            <form action="createMissionsDB.php" method="post" enctype="multipart/form-data">
-                <div class="form-group input-group-lg">
-                    <input name="FILE" type="file">
-                </div> 
-                <input class="btn btn-primary" type="submit" value="Submit">
-            </form>
-            </div>     
+        <form action="createMissionsDB.php" method="post" enctype="multipart/form-data">
+            <div class="form-group input-group-lg">
+                <input name="FILE" type="file">
+            </div> 
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+    </div>     
     </div>
 </body>
 <script src="assets/js/mission.js"></script>

@@ -7,7 +7,7 @@ $(document).ready(function() {
     document.getElementById('users-menu').className = "nav-item nav-link";
 })
 
-function scrollToCreate2(){
+function scrollToCreateWeekMissions(){
     var distance = $('#create-missions').offset().top;
     $('html,body').animate({scrollTop:distance},500);
 }

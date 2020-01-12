@@ -24,73 +24,32 @@ include("include/html/menu.php");
 
 ?>
 
-
-    <h3 class= "text-center">Nytt event:</h3>
-        <div class="nytt_event container">
-            <form id="add-event" action="event_actions.php">
-                Titel:<br>
-                <input style="color:black" type="text" id="title" size=30 >
-                <br>
-                Beskrivning:<br>
-                <textarea style="color:black; resize:none" type="text" id="description" Rows=2 Cols= 35></textarea>
-                <br>
-                <input type="checkbox" name="pubrunda" value="is_pubrunda"> Detta är en pubrunda
-                <br>
-                <br>
-                <span>
-                Datum: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                Tid:<br>           
-                <input style="color:black" type="date" id="datetime">
-                <input style="color:black" type="time" id="starttime">
-                </span>
-                <br>
-                Plats:<br>
-                <input style="color:black" type="text" id="location">
-                <br>
-                <span>
-                Nykterfaddrar: <br>
-                <select name="Patron1">
-                    <option value="" selected>Nykterfadder 1</option>
-                    <option value="fadderID1">Aragorn</option>
-                    <option value="fadderID2">Legolas</option>
-                    <option value="fadderID3">Gimli</option>
-                    <option value="fadderID4">Boromir</option>
-                </select>
-                
-                <select name="Patron2">
-                    <option value="" selected>Nykterfadder 2</option>
-                    <option value="fadderID1">Aragorn</option>
-                    <option value="fadderID2">Legolas</option>
-                    <option value="fadderID3">Gimli</option>
-                    <option value="fadderID4">Boromir</option>
-                </select>
-                <br>
-                <br>
-                <button type="button" class="btn-default btn-sm">Skapa</button>
-                </span>
-            </form>
-
-        </div>
-        <br>
-        <h3 class= "text-center">Planerade event:</h3>
-        <div class="container" style="width: 100%">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Namn</th>
-                    <th>Dag</th>
-                    <th>Starttid</th>
-                    <th>Plats</th>
-                    <th>Beskrivning</th>
-                    <th>Nykterfadd.1</th>
-                    <th>Nykterfadd.2</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button class="btn btn-secondary" type="button">Modify Selected Event</button>
+        <button class="btn btn-secondary" type="button" onclick="scrollToCreateEvents()">Add New Events</button>
+        <button class="btn btn-danger" type="button" id="delete">Delete <i class="fas fa-trash-alt"></i></button>
+    </div>
+   
+    <table class="table table-striped table-bordered table-sm sortable">
+        
+        <thead id="table-header">
+            <tr>
+                <th>Select</th>
+                <th>Id</th>
+                <th>Name Of Event</th>
+                <th>Day</th>
+                <th>Starting Time</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Patron 1</th>
+                <th>Patron 2</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
             <?php while($row = $result->fetch_assoc()) { ?>
-                <tr>
+                <tr> 
+                    <td><input type="checkbox" aria-label="Checkbox for following text input"></td>
                     <td><?php echo $row["Id"]?></td>
                     <td><?php echo $row["Title"]?></td>
                     <td><?php echo $row["DateTime"]?></td>
@@ -101,19 +60,68 @@ include("include/html/menu.php");
                     <td style="Width:120px;"><?php echo $row["Patron2"]?></td>  
                     <td style="Width:90px;">
                         <?php echo 
-                        "<button id=" . $row["Id"] .  " class='btn btn_edit'><i class='fas fa-cog'></i></button>" ?>
+                        "<button id=" . $row["Id"] .  " class='btn-xs btn_edit'><i class='fas fa-cog'></i></button>" ?>
                     </td>
 
                 </tr>
             <?php }?>
-            </tbody>
-            </table>
+        </tbody>
+    </table>
+
+    <div class="content" id="create-events">
+        <h2>Nytt event:</h2>
+        <form id="add-event" action="event_actions.php">
+            <div class="form-group">
+                <label for="title">Name:</label>
+                <input id="title" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Name of the event">
             </div>
-        </div>
-        <div class="edit_window">
-            HELLO WORLD    
-        </div>
-    </body>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="DESC" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Description of the mission"></textarea>
+            </div>
+            <div class="form-check" style="margin-bottom: 15px;">
+                <input type="checkbox" class="form-check-input" name="pubrunda" value="is_pubrunda">
+                <label class="form-check-label" for="exampleCheck1">This is a pubrunda.</label>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label for="datetime">Date:</label>
+                        <input class="form-control" type="date" id="datetime">
+                    </div>
+                    <div class="col">
+                        <label for="starttime">Time:</label>
+                        <input class="form-control" type="time" id="starttime">
+                    </div>
+                </div>
+            </div>
+            <label for="patron1">Patrons:</label>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <select name="Patron1" class="form-control" id="patron1">
+                            <option value="" selected>Nykterfadder 1</option>
+                            <option value="fadderID1">Aragorn</option>
+                            <option value="fadderID2">Legolas</option>
+                            <option value="fadderID3">Gimli</option>
+                            <option value="fadderID4">Boromir</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select name="Patron2" class="form-control">
+                            <option value="" selected>Nykterfadder 2</option>
+                            <option value="fadderID1">Aragorn</option>
+                            <option value="fadderID2">Legolas</option>
+                            <option value="fadderID3">Gimli</option>
+                            <option value="fadderID4">Boromir</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
     
 <script src="assets/js/events.js"></script>
 </html>

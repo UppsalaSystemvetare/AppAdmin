@@ -7,23 +7,17 @@ $(document).ready(function() {
     document.getElementById('weekmissions-menu').className = "nav-item nav-link";
 })
 
+function scrollToCreateEvents(){
+    var distance = $('#create-events').offset().top;
+    $('html,body').animate({scrollTop:distance},500);
+}
 
 $( document ).ready(function() {
-    
-    
     $('.btn_edit').click(function(){
         alert(this.id);
     });
 
-    
-
-
     function OpenEditWindow(id){
         $('#edit_window').show();
     }
-        
-    
-
-
-
 });
