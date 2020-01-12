@@ -1,36 +1,9 @@
 <!DOCTYPE html>
 <?php
 include("include/models/header.php");
+include("include/html/menu.php");
 include("include/models/users_model.php");
 ?>
-<html lang="en">
-
-<head>
-    <title>Admin Inspark</title>
-    <meta charset="utf-8">
-    <link href="https://uppsalasystemvetare.se/wp-content/themes/uppsalasystemvetare/img/favicon.png" rel="shortcut icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/users.css">
-    <script src="https://kit.fontawesome.com/9d81ab243e.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="assets/js/user.js"></script>
-</head>
-
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
-        <a class="navbar-brand" href="#">
-            <img src="https://uppsalasystemvetare.se/wp-content/themes/uppsalasystemvetare/img/favicon.png" width="30" height="30" alt=""></a>
-
-        <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="events.php">Events</a>
-            <a class="nav-item nav-link" href="users.php">Users</a>
-            <a class="nav-item nav-link" href="missions.php">Missions</a>
-        </div>
-    </nav>
 
     <div class="btn-group" role="group" aria-label="Basic example">
         <div class="dropdown">
@@ -123,4 +96,5 @@ include("include/models/users_model.php");
 
 </body>
 
+<script src="assets/js/user.js"></script>
 </html>

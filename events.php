@@ -19,24 +19,12 @@ $connection = disconnect();
 // Tabellen ska presentera namn på nykterfaddrar och inte ID?
 
 
+include("include/html/menu.php");
 
 
 ?>
 
-<html lang="en">
-    <head>
-        <title>Admin Inspark</title>
-        <meta http-equiv="content-type" content="text/html" charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="include/events.css">
-        <script src="https://kit.fontawesome.com/62782ec40b.js" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <script src="events.js"></script>
-        
-    </head>
-    <body>
+
     <h3 class= "text-center">Nytt event:</h3>
         <div class="nytt_event container">
             <form id="add-event" action="event_actions.php">
@@ -126,6 +114,8 @@ $connection = disconnect();
             HELLO WORLD    
         </div>
     </body>
+    
+<script src="assets/js/events.js"></script>
 </html>
 
 

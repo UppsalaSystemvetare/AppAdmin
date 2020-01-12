@@ -17,5 +17,5 @@
             </form> 
         </div>
     </body>
-    <script src="js/login_js.js"></script>
+    <script src="assets/js/login.js"></script>
 </html>
