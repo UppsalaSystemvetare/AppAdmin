@@ -1,0 +1,14 @@
+@media(max-width: 480px){
+    .btn-group {
+      display: block !important;
+      width: auto !important;
+    }
+
+    .btn{
+        width: 100%;
+    }
+
+    #search-input{
+        width: 100%;
+    }
+}

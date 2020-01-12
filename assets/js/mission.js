@@ -15,6 +15,20 @@ function scrollToCreateMissions(){
 
 // TODO: Detect if bottom of page, change button functionality
 
+$(document).on("click", "tr :checkbox", function(event) {
+    $(this)
+      .closest("tr")
+      .toggleClass("table-primary");
+  });
+  //delete listener
+$(document).ready(function() {
+    $("#delete").click(function() {
+      var users = selectedUsers();
+      users.forEach(element => {
+        delete_mission(element);
+      });
+    });
+  });
 
 function delete_mission(id){
     $.post("deleteMissionsDB.php", { ID: id }, function(data) {

@@ -31,7 +31,7 @@ include("include/models/users_model.php");
         </div>
         <button class="btn btn-secondary" type="button" onclick="scrollToTop()">Back To Top</button>
         <button id="delete" type="button" class="btn btn-danger">Delete  <i class="fas fa-trash-alt"></i></button>
-        <input type="text" class="" placeholder="Search">
+        <input id="search-input" type="text" class="" placeholder="Search">
         <button type="button" id="search" class="btn btn-secondary">Search <i class="fas fa-search"></i></button>
     </div>
 
