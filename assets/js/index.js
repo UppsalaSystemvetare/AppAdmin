@@ -5,4 +5,5 @@ $(document).ready(function() {
     document.getElementById('missions-menu').className = "nav-item nav-link";
     document.getElementById('event-menu').className = "nav-item nav-link";
     document.getElementById('users-menu').className = "nav-item nav-link";
+    document.getElementById('patrons-menu').className = "nav-item nav-link";
 })

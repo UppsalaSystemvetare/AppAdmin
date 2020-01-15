@@ -5,6 +5,7 @@ $(document).ready(function() {
     document.getElementById('home-menu').className = "nav-item nav-link";
     document.getElementById('event-menu').className = "nav-item nav-link";
     document.getElementById('users-menu').className = "nav-item nav-link";
+    document.getElementById('patrons-menu').className = "nav-item nav-link";
 })
 
 $(document).on("click", "tr :checkbox", function(event) {

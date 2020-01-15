@@ -29,6 +29,7 @@
                 </li>
                 <a id="event-menu" class="nav-item nav-link" href="events.php">Events</a>
                 <a id="users-menu" class="nav-item nav-link" href="users.php">Users</a>
+                <a id="patrons-menu" class="nav-item nav-link" href="faddrar.php">Patrons</a>
                 <a id="missions-menu" class="nav-item nav-link" href="missions.php">Missions</a>
                 <a id="weekmissions-menu" class="nav-item nav-link" href="weekmissions.php">Week-Missions</a>
                 <a class="nav-item nav-link" href="include/models/logout_process.php">Log Out</a>
