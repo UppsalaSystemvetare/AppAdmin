@@ -10,27 +10,15 @@ function login(){
         success: function successLogin(data, status, xhr){
             var payload = { ID : data.user_id, RANK : data.rank };
             $.ajax({
-                url: 'include/models/login_process.php',
+                url: 'include/functions/login_process.php',
                 dataType: 'json',
                 type: 'post',
                 data: payload
             });
-            window.location.href = "index.php";
         },
         error: failedLogin
     });
-}
-
-function successLogin(data, status, xhr){
-    alert(status);
-    alert(data);
-    var payload = { ID : "1"};
-    $.ajax({
-        url: '../include/models/login_process.php',
-        dataType: 'json',
-        type: 'post',
-        data: payload
-    });
+    setTimeout(function(){ window.location.href = "index.php"; }, 500);
 }
 
 function failedLogin(){
