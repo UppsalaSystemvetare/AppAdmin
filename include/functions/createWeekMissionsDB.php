@@ -1,6 +1,6 @@
 <?php
-    require "include/models/missions_model.php";
-    require_once "classes/PHPExcel/IOFactory.php"; 
+    require "../models/weekmissions_model.php";
+    require_once "../../Classes/PHPExcel/IOFactory.php"; 
     
     if(isset($_POST["DESC"]) && isset($_POST["POINTS"]) && !empty($_POST["DESC"]) && !empty($_POST["POINTS"])){
         $desc = $_POST["DESC"];
@@ -14,4 +14,4 @@
             WeekMissions::create_mission($Sheet[$i][0], $Sheet[$i][1]);
         }
     }
-    header('Location: missions.php');
+    header('Location: ../../weekmissions.php');

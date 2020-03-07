@@ -1,3 +1,13 @@
+//Menu highlight
+$(document).ready(function() {
+    document.getElementById('users-menu').className = "nav-item nav-link active";
+    document.getElementById('missions-menu').className = "nav-item nav-link";
+    document.getElementById('patrons-menu').className = "nav-item nav-link";
+    document.getElementById('event-menu').className = "nav-item nav-link";
+    document.getElementById('home-menu').className = "nav-item nav-link";
+    document.getElementById('weekmissions-menu').className = "nav-item nav-link";
+})
+
 //Listens for checkbox clicks and applies a css class
 $(document).on("click", "tr :checkbox", function(event) {
   $(this)
@@ -19,12 +29,12 @@ $(document).ready(function() {
 //delete function
 function deleteUser(ID) {
 
-  $.post("deleteUserDB.php", { ID: ID }, function(data) {
+  $.post("include/functions/deleteUserDB.php", { ID: ID }, function(data) {
     location.reload();
   });
-=======
+
   $.post(
-    "deleteUserDB.php",
+    "include/functions/deleteUserDB.php",
     { ID: ID},
     function(data) {
       location.reload();
@@ -81,7 +91,7 @@ $(document).ready(function() {
 //change team function
 function changeTeam(ID, team) {
   $.post(
-    "changeTeamDB.php",
+    "include/functions/changeTeamDB.php",
     { ID: ID, Team: team },
     function(data) {
       location.reload();
@@ -131,7 +141,7 @@ $(document).ready(function() {
 function changeRank(ID, rank) {
 
   $.post(
-    "changeRankDB.php",
+    "include/functions/changeRankDB.php",
     { ID: ID, Rank: rank },
     function(data) {
       location.reload();

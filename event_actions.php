@@ -1,5 +1,5 @@
 <?php
-	include("include/header.php");
+	include("include/models/header.php");
 	//Add("PubRundan", "1995-09-11", "17:00", "Uppsala", "PubRundan med uppsala", "30", "0");   // Fungerar för att lägga till i databasen.
 	//Undefined variable ibland?
 	function Add($title, $dateTime, $startTime, $location, $description, $patron1, $patron2)

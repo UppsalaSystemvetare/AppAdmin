@@ -1,0 +1,17 @@
+#create-events{
+    height: 100vh;
+    padding: 60px;
+}
+
+.form-group{
+    width: 100%;
+    max-width: 800px;
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+h1{
+    margin: 50px;
+}
