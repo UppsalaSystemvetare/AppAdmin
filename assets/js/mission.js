@@ -20,8 +20,9 @@ $(document).on("click", "tr :checkbox", function(event) {
     $(this)
       .closest("tr")
       .toggleClass("table-primary");
-  });
-  //delete listener
+});
+
+//delete listener
 $(document).ready(function() {
     $("#delete").click(function() {
       var users = selectedUsers();

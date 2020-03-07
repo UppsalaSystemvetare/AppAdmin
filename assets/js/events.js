@@ -22,3 +22,43 @@ $( document ).ready(function() {
         $('#edit_window').show();
     }
 });
+
+$(document).on("click", "tr :checkbox", function(event) {
+    $(this)
+      .closest("tr")
+      .toggleClass("table-primary");
+});
+
+//delete listener
+$(document).ready(function() {
+    $("#delete").click(function() {
+      var events = selectedEvents();
+      events.forEach(element => {
+        delete_event(element);
+      });
+    });
+  });
+
+function delete_event(id){
+    $.post("include/functions/deleteEventDB.php", { ID: id }, function(data) {
+        location.reload();
+    });
+}
+
+//get selected users
+function selectedEvents() {
+    var events = [];
+    $("#event-table")
+      .find("tr")
+      .each(function() {
+        var row = $(this);
+        if (row.find('input[type="checkbox"]').is(":checked")) {
+  
+            events.push($(row)
+            .find(".Id")
+            .val());
+  
+        }
+      });
+    return events;
+  }

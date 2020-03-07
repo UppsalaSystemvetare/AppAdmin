@@ -18,4 +18,12 @@ class Events{
         $result = $connection->query($sql);
 		$connection = disconnect();
     }
+
+    static public function delete_event($id){
+        $connection = connect();
+        $query = "DELETE FROM Events WHERE Id = '$id'";
+        $result = $connection->query($query);
+        $connection = disconnect();
+        return $result;
+      }
 }

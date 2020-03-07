@@ -12,7 +12,7 @@ include("include/html/menu.php");
         <button class="btn btn-danger" type="button" id="delete">Delete <i class="fas fa-trash-alt"></i></button>
     </div>
    
-    <table class="table table-striped table-bordered table-sm sortable">
+    <table class="table table-striped table-bordered table-sm sortable" id="event-table">
         
         <thead id="table-header">
             <tr>
@@ -46,6 +46,7 @@ include("include/html/menu.php");
                         <?php echo 
                         "<button id=" . $row["Id"] .  " class='btn-xs btn_edit'><i class='fas fa-cog'></i></button>" ?>
                     </td>
+                    <input class="Id" type="hidden" value="<?php echo $row["Id"] ?>">
 
                 </tr>
             <?php }?>
