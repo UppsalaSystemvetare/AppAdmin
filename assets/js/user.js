@@ -29,12 +29,12 @@ $(document).ready(function() {
 //delete function
 function deleteUser(ID) {
 
-  $.post("deleteUserDB.php", { ID: ID }, function(data) {
+  $.post("include/functions/deleteUserDB.php", { ID: ID }, function(data) {
     location.reload();
   });
 
   $.post(
-    "deleteUserDB.php",
+    "include/functions/deleteUserDB.php",
     { ID: ID},
     function(data) {
       location.reload();
@@ -91,7 +91,7 @@ $(document).ready(function() {
 //change team function
 function changeTeam(ID, team) {
   $.post(
-    "changeTeamDB.php",
+    "include/functions/changeTeamDB.php",
     { ID: ID, Team: team },
     function(data) {
       location.reload();
@@ -141,7 +141,7 @@ $(document).ready(function() {
 function changeRank(ID, rank) {
 
   $.post(
-    "changeRankDB.php",
+    "include/functions/changeRankDB.php",
     { ID: ID, Rank: rank },
     function(data) {
       location.reload();
