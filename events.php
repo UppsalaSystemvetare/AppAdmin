@@ -1,27 +1,8 @@
 <!DOCTYPE html>
 <?php 
-include("include/models/header.php");
-
-$connection = connect();
-$all = "SELECT * FROM Events";
-$result = $connection->query($all);
-$connection = disconnect();
-//Hello Hannes här!
-
-//BACKEND:
-// Lägga till formulärdatan i databasen			*** Fungerar ***
-// Radera en rad i databasen givet ett ID		*** Bör fungera ***
-// Ändra en rad i databasen givet ett ID
-// Hämta id och namn på alla faddrar från tabellen "Faddrar"
-
-//FRONTEND:
-// Stil
-// Tabellen ska presentera namn på nykterfaddrar och inte ID?
-
-
+include("include/models/event_model.php");
+include("include/models/faddrar_model.php");
 include("include/html/menu.php");
-
-
 ?>
 
     <div class="btn-group" role="group" aria-label="Basic example">
@@ -48,7 +29,9 @@ include("include/html/menu.php");
             </tr>
         </thead>
         <tbody>
-            <?php while($row = $result->fetch_assoc()) { ?>
+            <?php  
+                $result = Events::get_events();
+                while($row = $result->fetch_assoc()){ ?>
                 <tr> 
                     <td><input type="checkbox" aria-label="Checkbox for following text input"></td>
                     <td><?php echo $row["Id"]?></td>
@@ -71,50 +54,56 @@ include("include/html/menu.php");
 
     <div class="content" id="create-events">
         <h2>Nytt event:</h2>
-        <form id="add-event" action="event_actions.php">
+        <form id="add-event" action="include/functions/createEventDB.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="title">Name:</label>
-                <input id="title" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Name of the event">
+                <input id="title" name="Name" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Name of the event">
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
-                <textarea id="description" name="DESC" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Description of the mission"></textarea>
+                <label for="description">Description:</label>
+                <textarea id="description" name="Desc" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Description of the mission"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="title">Location:</label>
+                <input id="title" name="Location" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Location of the event">
             </div>
             <div class="form-check" style="margin-bottom: 15px;">
                 <input type="checkbox" class="form-check-input" name="pubrunda" value="is_pubrunda">
-                <label class="form-check-label" for="exampleCheck1">This is a pubrunda.</label>
+                <label class="form-check-label" name="IsPubrunda" for="exampleCheck1">This event is a pubrunda with missions.</label>
             </div>
             <div class="form-group">
                 <div class="row">
                     <div class="col">
                         <label for="datetime">Date:</label>
-                        <input class="form-control" type="date" id="datetime">
+                        <input class="form-control" name="Date" type="date" id="datetime">
                     </div>
                     <div class="col">
                         <label for="starttime">Time:</label>
-                        <input class="form-control" type="time" id="starttime">
+                        <input class="form-control" name="Starttime" type="time" id="starttime">
                     </div>
                 </div>
             </div>
-            <label for="patron1">Patrons:</label>
+            <label for="patron1">Nykterfaddrar:</label>
             <div class="form-group">
                 <div class="row">
                     <div class="col">
                         <select name="Patron1" class="form-control" id="patron1">
                             <option value="" selected>Nykterfadder 1</option>
-                            <option value="fadderID1">Aragorn</option>
-                            <option value="fadderID2">Legolas</option>
-                            <option value="fadderID3">Gimli</option>
-                            <option value="fadderID4">Boromir</option>
+                            <?php 
+                                $result = Faddrar::get_users();
+                                while($row = $result->fetch_assoc()){ ?>
+                                <option value="<?php echo $row["id"] ?>"><?php echo $row["name"] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="col">
-                        <select name="Patron2" class="form-control">
-                            <option value="" selected>Nykterfadder 2</option>
-                            <option value="fadderID1">Aragorn</option>
-                            <option value="fadderID2">Legolas</option>
-                            <option value="fadderID3">Gimli</option>
-                            <option value="fadderID4">Boromir</option>
+                        <select name="Patron2" class="form-control" id="patron2">
+                            <option value="" selected>Nykterfadder 1</option>
+                            <?php 
+                                $result = Faddrar::get_users();
+                                while($row = $result->fetch_assoc()){ ?>
+                                <option value="<?php echo $row["id"] ?>"><?php echo $row["name"] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>

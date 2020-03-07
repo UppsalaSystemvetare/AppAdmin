@@ -6,7 +6,6 @@
       $query = "SELECT * FROM Faddrar";
       $result = $connection->query($query);
       $connection = disconnect();
-
       return $result;
     }
 
