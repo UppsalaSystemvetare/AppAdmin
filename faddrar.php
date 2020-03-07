@@ -96,5 +96,6 @@ include("include/models/faddrar_model.php");
     </table>
 
 </body>
+<script src="assets/js/user.js"></script>
 <script src="assets/js/faddrar.js"></script>
 </html>
