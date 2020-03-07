@@ -25,7 +25,7 @@ $(document).ready(function() {
 });
 
 function delete_mission(id){
-    $.post("deleteWeekMissionsDB.php", { ID: id }, function(data) {
+    $.post("include/functions/deleteWeekMissionsDB.php", { ID: id }, function(data) {
         location.reload();
     });
 }

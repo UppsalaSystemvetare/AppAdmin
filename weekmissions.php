@@ -45,7 +45,7 @@ include("include/html/menu.php");
              
     <div class="content" id="create-missions">
         <h2>Create single new week mission:</h2>
-            <form action="createWeekMissionsDB.php" method="post" enctype="multipart/form-data">
+            <form action="include/functions/createWeekMissionsDB.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="desc">Description</label>
                     <input id="desc" name="DESC" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Description of the mission">
@@ -58,7 +58,7 @@ include("include/html/menu.php");
             </form>
         <h1> - OR - </h1>
         <h2>Create multiple new week missions: (.xls, .xlsx)</h2>
-            <form action="createWeekMissionsDB.php" method="post" enctype="multipart/form-data">
+            <form action="include/functions/createWeekMissionsDB.php" method="post" enctype="multipart/form-data">
                 <div class="form-group input-group-lg">
                     <input name="FILE" type="file">
                 </div> 

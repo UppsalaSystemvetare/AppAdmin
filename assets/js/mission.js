@@ -32,7 +32,7 @@ $(document).ready(function() {
   });
 
 function delete_mission(id){
-    $.post("deleteMissionsDB.php", { ID: id }, function(data) {
+    $.post("include/functions/deleteMissionsDB.php", { ID: id }, function(data) {
         location.reload();
     });
 }
