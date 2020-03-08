@@ -37,6 +37,7 @@ include("include/models/faddrar_model.php");
         <thead id="table-header">
             <tr>
                 <th scope="col">Select</th>
+                <th id="sort-bild" scope="col">Bild</th>
                 <th id="sort-name" scope="col">Name</th>
                 <th id="sort-rank" scope="col">Rank</th>
                 <th id="sort-team" scope="col">Team</th>
@@ -51,6 +52,7 @@ include("include/models/faddrar_model.php");
                 <tr>
                     <td><input type="checkbox" aria-label="Checkbox for following text input"></td>
                     <input class="ID" type="hidden" value="<?php echo $row["id"] ?>">
+                    <td> <img height="100px" src="<?php echo $row["imgURL"] ?>"/></td>
                     <td> <?php echo $row["name"]; ?></td>
                     <td><?php
                             switch ($row["rank"]) {
@@ -88,7 +90,7 @@ include("include/models/faddrar_model.php");
                                     echo ' <i class="fas fa-square"></i> Inget lag valt';
                             }
                             ?></td>
-                    <td class="show-button"> <?php echo $row["Number"] . ' <button class="change-number" class="btn btn-secondary btn-sm" type="button">Change</button>'; ?></td>
+                    <td> <?php echo $row["Number"] . ' <button class="change-number" class="btn btn-secondary btn-sm" type="button">Change</button>'; ?></td>
                 </tr>
             <?php } ?>
 

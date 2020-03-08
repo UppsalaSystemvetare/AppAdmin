@@ -19,7 +19,7 @@ $user = new Users();
                     <a href="assets/files/events.xlsx" download><i class="fas fa-file-excel"> Mall för Events</i></a>
             </div>
             <div class="row">
-                <a href="assets/files/patrons.xlsx" download><i class="fas fa-file-excel"> Mall för Faddrar</i></a>
+                <a href="assets/files/faddrar.xlsx" download><i class="fas fa-file-excel"> Mall för Faddrar</i></a>
             </div>
             <div class="row">
                 <a href="assets/files/missions.xlsx" download><i class="fas fa-file-excel"> Mall för Uppdrag</i></a>
