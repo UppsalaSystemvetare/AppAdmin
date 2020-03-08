@@ -47,12 +47,14 @@ include("include/models/users_model.php");
         <tbody>
 
             <?php
+            $user = new Users();
+            $user->get_wp_users();
             $result = Users::get_users();
             while ($row = $result->fetch_assoc()) { ?>
                 <tr>
                     <td><input type="checkbox" aria-label="Checkbox for following text input"></td>
                     <input class="ID" type="hidden" value="<?php echo $row["ID"] ?>">
-                    <td>Firstname Lastname</td>
+                    <td><?php echo $user->get_wp_name($row["User_ID"]); ?></td>
                     <td><?php
                             switch ($row["Rank"]) {
                                 case "1":
