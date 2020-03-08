@@ -14,7 +14,8 @@ function connect(){
 	$dbname = "uppsalasystemvetare_se_db_2";
 
 	$connection = new mysqli ( $host , $uname , $pass , $dbname );
-
+    $connection -> set_charset("utf8");
+    
 	if ( $connection -> connect_error )
 	{
 		die ("Connection failed:". $connection . connect_error ) ;
