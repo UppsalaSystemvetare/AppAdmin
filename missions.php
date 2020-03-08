@@ -57,7 +57,7 @@ include("include/html/menu.php");
         </form>
         <h1> - OR - </h1>
         <h2>Create multiple new missions: (.xls, .xlsx)</h2>
-        <form action="createMissionsDB.php" method="post" enctype="multipart/form-data">
+        <form action="include/functions/createMissionsDB.php" method="post" enctype="multipart/form-data">
             <div class="form-group input-group-lg">
                 <input name="FILE" type="file">
             </div> 

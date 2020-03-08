@@ -3,6 +3,10 @@
 
     public $wp_users = [];
 
+    function __construct(){
+        $this->get_wp_users();
+    }
+
     static public function get_users(){
       $connection = connect();
       $query = "SELECT * FROM Users";
@@ -23,6 +27,15 @@
           }
         $this->wp_users = $rows;
         $connection = disconnect();
+    }
+
+    public function get_user_rank_text($rank){
+        switch($rank){
+            case(1): return "Recce";
+            case(2): return "Fadder";
+            case(3): return "Kapten";
+            case(4): return "General";
+        }
     }
 
     public function get_wp_name($id){

@@ -11,7 +11,9 @@
         $document = PHPExcel_IOFactory::load($_FILES["FILE"]["tmp_name"]);
         $Sheet = $document->getActiveSheet()->toArray(null);
         for($i = 1; $i < count($Sheet); $i++){
-            WeekMissions::create_mission($Sheet[$i][0], $Sheet[$i][1]);
+            if($Sheet[$i][0] != "" && $Sheet[$i][1] != ""){
+                WeekMissions::create_mission($Sheet[$i][0], $Sheet[$i][1]);
+            }
         }
     }
     header('Location: ../../weekmissions.php');

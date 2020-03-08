@@ -6,10 +6,11 @@
     <link href="https://uppsalasystemvetare.se/wp-content/themes/uppsalasystemvetare/img/favicon.png" rel="shortcut icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="assets/css/users.css">
-    <link rel="stylesheet" href="assets/css/missions.css">
     <link rel="stylesheet" href="assets/css/events.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/missions.css">
+    <link rel="stylesheet" href="assets/css/users.css">
     <script src="https://kit.fontawesome.com/9d81ab243e.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -27,11 +28,11 @@
                 <li class="nav-item">
                     <a id="home-menu" class="nav-link" href="index.php">Home</a>
                 </li>
+                <a id="users-menu" class="nav-item nav-link" href="users.php">Användare</a>
+                <a id="patrons-menu" class="nav-item nav-link" href="faddrar.php">Faddrar</a>
                 <a id="event-menu" class="nav-item nav-link" href="events.php">Events</a>
-                <a id="users-menu" class="nav-item nav-link" href="users.php">Users</a>
-                <a id="patrons-menu" class="nav-item nav-link" href="faddrar.php">Patrons</a>
-                <a id="missions-menu" class="nav-item nav-link" href="missions.php">Missions</a>
-                <a id="weekmissions-menu" class="nav-item nav-link" href="weekmissions.php">Week-Missions</a>
+                <a id="missions-menu" class="nav-item nav-link" href="missions.php">Uppdrag</a>
+                <a id="weekmissions-menu" class="nav-item nav-link" href="weekmissions.php">Veckouppdrag</a>
                 <a class="nav-item nav-link" href="include/functions/logout_process.php">Log Out</a>
             </div>
             
