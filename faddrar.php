@@ -97,6 +97,29 @@ include("include/models/faddrar_model.php");
         </tbody>
     </table>
 
+    <div class="content" id="create-missions">
+        <h2>Create new fadder:</h2>
+        <form action="include/functions/createMissionsDB.php" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="desc">Description</label>
+                <input id="desc" name="DESC" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Description of the mission">
+            </div>
+            <div class="form-group">
+                <label for="point">Point Value</label>
+                <input id="point" name="POINTS" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Poängvärde...">
+            </div> 
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+        <h1> - OR - </h1>
+        <h2>Create multiple new fadders: (.xls, .xlsx)</h2>
+        <form action="include/functions/createMissionsDB.php" method="post" enctype="multipart/form-data">
+            <div class="form-group input-group-lg">
+                <input name="FILE" type="file">
+            </div> 
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+    </div>     
+
 </body>
 <script src="assets/js/user.js"></script>
 <script src="assets/js/faddrar.js"></script>
