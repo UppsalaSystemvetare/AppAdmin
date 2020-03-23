@@ -54,7 +54,7 @@ include("include/html/menu.php");
     </table>
 
     <div class="content" id="create-events">
-        <h2>Nytt event:</h2>
+        <h2>Create new event:</h2>
         <form id="add-event" action="include/functions/createEventDB.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="title">Name:</label>
@@ -109,6 +109,14 @@ include("include/html/menu.php");
                     </div>
                 </div>
             </div>
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+        <h1> - OR - </h1>
+        <h2>Create multiple new events: (.xls, .xlsx)</h2>
+        <form action="include/functions/createEventDB.php" method="post" enctype="multipart/form-data">
+            <div class="form-group input-group-lg">
+                <input name="FILE" type="file">
+            </div> 
             <input class="btn btn-primary" type="submit" value="Submit">
         </form>
     </div>

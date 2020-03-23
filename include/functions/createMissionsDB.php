@@ -2,11 +2,14 @@
     require "../models/missions_model.php";
     require_once "../../Classes/PHPExcel/IOFactory.php"; 
     
+    // using form
     if(isset($_POST["DESC"]) && isset($_POST["POINTS"]) && !empty($_POST["DESC"]) && !empty($_POST["POINTS"])){
         $desc = $_POST["DESC"];
         $points = $_POST["POINTS"];
         Missions::create_mission($desc, $points);
     }
+
+    // using excel
     else if(isset($_FILES["FILE"]) && isset($_FILES["FILE"]["tmp_name"])){
         $document = PHPExcel_IOFactory::load($_FILES["FILE"]["tmp_name"]);
         $Sheet = $document->getActiveSheet()->toArray(null);
@@ -16,4 +19,5 @@
             }
         }
     }
+    
     header('Location: ../../missions.php');
