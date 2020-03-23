@@ -27,14 +27,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a id="home-menu" class="nav-link" href="index.php">Home</a>
+                    <a id="home-menu" class="nav-link" href="index.php">Hem</a>
                 </li>
                 <a id="users-menu" class="nav-item nav-link" href="users.php">Användare</a>
                 <a id="patrons-menu" class="nav-item nav-link" href="faddrar.php">Faddrar</a>
                 <a id="event-menu" class="nav-item nav-link" href="events.php">Events</a>
                 <a id="missions-menu" class="nav-item nav-link" href="missions.php">Uppdrag</a>
                 <a id="weekmissions-menu" class="nav-item nav-link" href="weekmissions.php">Veckouppdrag</a>
-                <a class="nav-item nav-link" href="include/functions/logout_process.php">Log Out</a>
+                <a class="nav-item nav-link" href="include/functions/logout_process.php">Logga ut</a>
             </div>
             
         </div>
