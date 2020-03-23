@@ -28,6 +28,8 @@ include("include/models/faddrar_model.php");
                 <button id="change-team-blue" class="dropdown-item" type="button">Blå</button>
             </div>
         </div>
+        <button class="btn btn-secondary" type="button" onclick="scrollToCreateFaddrar()">Add New Faddrar</button>
+        <button class="btn btn-secondary" type="button" onclick="scrollToTop()">Back To Top</button>
         <button id="delete" type="button" class="btn btn-danger">Delete  <i class="fas fa-trash-alt"></i></button>
         <input type="text" class="" placeholder="Search">
         <button type="button" id="search" class="btn btn-secondary">Search <i class="fas fa-search"></i></button>
@@ -97,22 +99,47 @@ include("include/models/faddrar_model.php");
         </tbody>
     </table>
 
-    <div class="content" id="create-missions">
+    <div class="content" id="create-faddrar">
         <h2>Create new fadder:</h2>
-        <form action="include/functions/createMissionsDB.php" method="post" enctype="multipart/form-data">
+        <form action="include/functions/createFadderDB.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="desc">Description</label>
-                <input id="desc" name="DESC" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Description of the mission">
+                <label for="desc">Namn</label>
+                <input id="desc" name="NAME" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="För- och efternamn">
             </div>
             <div class="form-group">
-                <label for="point">Point Value</label>
-                <input id="point" name="POINTS" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Poängvärde...">
+                <div class="row">
+                    <div class="col">
+                        <label for="team">Lag</label>
+                        <select class="custom-select mr-sm-2" name="TEAM" id="team">
+                            <option value="1">Röd</option>
+                            <option value="2">Grön</option>
+                            <option value="3">Gul</option>
+                            <option value="4">Blå</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="rank">Rank</label>
+                        <select class="custom-select mr-sm-2" name="RANK" id="rank">
+                            <option value="2">Fadder</option>
+                            <option value="3">Kapten</option>
+                            <option value="4">General</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="point">Telefonnummer</label>
+                <input id="point" name="NR" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Telefonnummer">
+            </div> 
+            <div class="form-group">
+                <label for="point">Bild-länk</label>
+                <input id="point" name="IMG" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="länk till bild på användaren (via Uppsalasystemvetare.se)">
             </div> 
             <input class="btn btn-primary" type="submit" value="Submit">
         </form>
         <h1> - OR - </h1>
         <h2>Create multiple new fadders: (.xls, .xlsx)</h2>
-        <form action="include/functions/createMissionsDB.php" method="post" enctype="multipart/form-data">
+        <form action="include/functions/createFadderDB.php" method="post" enctype="multipart/form-data">
             <div class="form-group input-group-lg">
                 <input name="FILE" type="file">
             </div> 

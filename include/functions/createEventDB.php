@@ -30,11 +30,9 @@
         $document = PHPExcel_IOFactory::load($_FILES["FILE"]["tmp_name"]);
         $Sheet = $document->getActiveSheet()->toArray(null);
         for($i = 1; $i < count($Sheet); $i++){
-            var_dump($Sheet[$i]);
             if($Sheet[$i][0] != "" && $Sheet[$i][1] != "" && $Sheet[$i][2] != "" && 
             $Sheet[$i][3] != "" && $Sheet[$i][4] != "" && $Sheet[$i][5] != "" && 
             $Sheet[$i][6] != ""){
-                echo "lets go";
                 Events::create_event($Sheet[$i][0], $Sheet[$i][1],  $Sheet[$i][2],  $Sheet[$i][3],  $Sheet[$i][4],  $Sheet[$i][5],  $Sheet[$i][6],  $Sheet[$i][7]);
             }
         }

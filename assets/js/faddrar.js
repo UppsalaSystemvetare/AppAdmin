@@ -7,3 +7,8 @@ $(document).ready(function() {
     document.getElementById('home-menu').className = "nav-item nav-link";
     document.getElementById('weekmissions-menu').className = "nav-item nav-link";
 })
+
+function scrollToCreateFaddrar(){
+    var distance = $('#create-faddrar').offset().top;
+    $('html,body').animate({scrollTop:distance},500);
+}
