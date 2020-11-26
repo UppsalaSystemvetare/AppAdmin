@@ -31,11 +31,11 @@ include("include/models/faddrar_model.php");
         <button class="btn btn-secondary" type="button" onclick="scrollToCreateFaddrar()">Add New Faddrar</button>
         <button class="btn btn-secondary" type="button" onclick="scrollToTop()">Back To Top</button>
         <button id="delete" type="button" class="btn btn-danger">Delete  <i class="fas fa-trash-alt"></i></button>
-        <input type="text" class="" placeholder="Search">
-        <button type="button" id="search" class="btn btn-secondary">Search <i class="fas fa-search"></i></button>
+        <input id="search-input" type="text" class="" placeholder="Search...">
+        <!-- <button type="button" id="search" class="btn btn-secondary">Search <i class="fas fa-search"></i></button> -->
     </div>
 
-    <table class="table table-striped table-bordered table-sm" id="user-table">
+    <table class="table table-striped table-bordered table-sm">
         <thead id="table-header">
             <tr>
                 <th scope="col">Select</th>
@@ -46,7 +46,7 @@ include("include/models/faddrar_model.php");
                 <th id="sort-number" scope="col">Number</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="user-table">
 
             <?php
             $result = Faddrar::get_users();
