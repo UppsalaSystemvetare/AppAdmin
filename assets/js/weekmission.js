@@ -52,3 +52,26 @@ function scrollToCreateWeekMissions(){
     var distance = $('#create-missions').offset().top;
     $('html,body').animate({scrollTop:distance},500);
 }
+
+//Form validation
+$(document).ready(function() {
+    $("#weekmission-form").submit(function() {        
+        // Initiera error-variabler
+        var errorMsg = "Du måste fylla i följande: \r\n";
+
+        var sendToServer = true;
+
+        if ($("#desc").val().length === 0) {
+            errorMsg += "¤ Description \r\n";
+            sendToServer = false;
+        }
+        if ($("#point").val().length === 0) {
+            errorMsg += "¤ Point Value \r\n";
+            sendToServer = false;
+        }
+        if (!sendToServer){
+            alert(errorMsg);
+        }
+
+    });
+});
