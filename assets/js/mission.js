@@ -73,4 +73,35 @@ function change_mission(id, desc, points){
     return users;
   }
  
-  
+  //Form validation
+$(document).ready(function() {
+  $("#missions-form").submit(function() {        
+      // Initiera error-variabler
+      var errorMsg = "Ooops! Följande måste åtgärdas: \r\n";
+
+      var sendToServer = true;
+      
+
+      if ($("#desc").val().length === 0) {
+          errorMsg += " ¤ Du måste fylla i en beskrivning. \r\n";
+          sendToServer = false;
+      }
+      if ($("#desc").val().includes("'") || $("#desc").val().includes("\\")) {
+          errorMsg += " ¤ Beskrivningen innehåller otillåtna karaktärer. \r\n";
+          sendToServer = false;
+      }
+      if ($("#point").val().length === 0) {
+          errorMsg += " ¤ Du måste fylla i ett poängvärde \r\n";
+          sendToServer = false;
+      }
+      if (isNaN($("#point").val())) { 
+          errorMsg += " ¤ Poängvärdet måste vara en siffra \r\n";
+          sendToServer = false;
+      }
+      if (!sendToServer){
+          event.preventDefault();
+          alert(errorMsg + "\r\nFixa det och försök igen.");
+      }
+
+  });
+});

@@ -57,20 +57,30 @@ function scrollToCreateWeekMissions(){
 $(document).ready(function() {
     $("#weekmission-form").submit(function() {        
         // Initiera error-variabler
-        var errorMsg = "Du måste fylla i följande: \r\n";
+        var errorMsg = "Ooops! Följande måste åtgärdas: \r\n";
 
         var sendToServer = true;
+        
 
         if ($("#desc").val().length === 0) {
-            errorMsg += "¤ Description \r\n";
+            errorMsg += " ¤ Du måste fylla i en beskrivning. \r\n";
+            sendToServer = false;
+        }
+        if ($("#desc").val().includes("'") || $("#desc").val().includes("\\")) {
+            errorMsg += " ¤ Beskrivningen innehåller otillåtna karaktärer. \r\n";
             sendToServer = false;
         }
         if ($("#point").val().length === 0) {
-            errorMsg += "¤ Point Value \r\n";
+            errorMsg += " ¤ Du måste fylla i ett poängvärde \r\n";
+            sendToServer = false;
+        }
+        if (isNaN($("#point").val())) { 
+            errorMsg += " ¤ Poängvärdet måste vara en siffra \r\n";
             sendToServer = false;
         }
         if (!sendToServer){
-            alert(errorMsg);
+            event.preventDefault();
+            alert(errorMsg + "\r\nFixa det och försök igen.");
         }
 
     });
