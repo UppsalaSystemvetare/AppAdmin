@@ -65,8 +65,8 @@ include("include/html/menu.php");
                 <textarea id="description" name="Desc" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Description of the mission"></textarea>
             </div>
             <div class="form-group">
-                <label for="title">Location:</label>
-                <input id="title" name="Location" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Location of the event">
+                <label for="location">Location:</label>
+                <input id="location" name="Location" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Location of the event">
             </div>
             <div class="form-check" style="margin-bottom: 15px;">
                 <input type="checkbox" class="form-check-input" name="pubrunda" value="is_pubrunda">
