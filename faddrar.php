@@ -101,10 +101,10 @@ include("include/models/faddrar_model.php");
 
     <div class="content" id="create-faddrar">
         <h2>Create new fadder:</h2>
-        <form action="include/functions/createFadderDB.php" method="post" enctype="multipart/form-data">
+        <form action="include/functions/createFadderDB.php" id="fadder-form" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="desc">Namn</label>
-                <input id="desc" name="NAME" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="För- och efternamn">
+                <label for="name">Namn</label>
+                <input id="name" name="NAME" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="För- och efternamn">
             </div>
             <div class="form-group">
                 <div class="row">
@@ -128,12 +128,12 @@ include("include/models/faddrar_model.php");
                 </div>
             </div>
             <div class="form-group">
-                <label for="point">Telefonnummer</label>
-                <input id="point" name="NR" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Telefonnummer">
+                <label for="number">Telefonnummer</label>
+                <input id="number" name="NR" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Telefonnummer">
             </div> 
             <div class="form-group">
-                <label for="point">Bild-länk</label>
-                <input id="point" name="IMG" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="länk till bild på användaren (via Uppsalasystemvetare.se)">
+                <label for="imgurl">Bild-länk</label>
+                <input id="imgurl" name="IMG" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="länk till bild på användaren (via Uppsalasystemvetare.se)">
             </div> 
             <input class="btn btn-primary" type="submit" value="Submit">
         </form>
