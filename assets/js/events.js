@@ -66,7 +66,6 @@ function selectedEvents() {
     //Form validation
 $(document).ready(function() {
   $("#add-event").submit(function() {        
-      // Initiera error-variabler
       var titleValue = document.getElementById("title").value;
       var descValue = document.getElementById("description").value;
       var locationValue = document.getElementById("location").value;
@@ -75,13 +74,10 @@ $(document).ready(function() {
       var pat1Value = document.getElementById("patron1").value;
       var pat2Value = document.getElementById("patron2").value;
 
-
-      var currDate = new Date();
-      currDate.setHours(0, 0, 0, 0);
-      //alert(currDate);
+      //var currDate = new Date();
+      //currDate.setHours(0, 0, 0, 0);
 
       var errorMsg = "Ooops! Följande måste åtgärdas: \r\n";
-
       var sendToServer = true;
 
       if (titleValue.length === 0) {
@@ -89,7 +85,7 @@ $(document).ready(function() {
           sendToServer = false;
       }
       if (titleValue.includes("'") || titleValue.includes("\\")) {
-          errorMsg += " ¤ Namnet innehåller otillåtna karaktärer. \r\n";
+          errorMsg += " ¤ Namnet innehåller otillåtna tecken. \r\n";
           sendToServer = false;
       }
       if (descValue.length === 0) {
@@ -97,7 +93,7 @@ $(document).ready(function() {
           sendToServer = false;
       }
       if (descValue.includes("'") || titleValue.includes("\\")) {
-          errorMsg += " ¤ Beskrivningen innehåller otillåtna karaktärer. \r\n";
+          errorMsg += " ¤ Beskrivningen innehåller otillåtna tecken. \r\n";
           sendToServer = false;
       }
       if (locationValue.length === 0) {
@@ -105,14 +101,14 @@ $(document).ready(function() {
           sendToServer = false;
       }
       if (locationValue.includes("'") || titleValue.includes("\\")) {
-          errorMsg += " ¤ Location innehåller otillåtna karaktärer. \r\n";
+          errorMsg += " ¤ Location innehåller otillåtna tecken. \r\n";
           sendToServer = false;
       }
       if (dateValue.length === 0) {
         errorMsg += " ¤ Du måste ange ett datum. \r\n";
         sendToServer = false;
       }
-      /*if (dateValue < currDate) { //Lägg till kontroll så att datumet inte passerat?
+      /*if (dateValue < currDate) { //Lägg till kontroll för att se så att datumet inte passerat?
           errorMsg += " ¤ Du har angett ett ogiltigt datum. \r\n";
           sendToServer = false;
       }*/
@@ -132,11 +128,9 @@ $(document).ready(function() {
         errorMsg += " ¤ Du måste välja två olika nykterfaddrar. \r\n";
         sendToServer = false;
       }
-
       if (!sendToServer){
           event.preventDefault();
           alert(errorMsg + "\r\nFixa det och försök igen.");
       }
-
   });
 });

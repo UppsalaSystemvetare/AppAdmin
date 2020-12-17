@@ -76,18 +76,15 @@ function change_mission(id, desc, points){
   //Form validation
 $(document).ready(function() {
   $("#missions-form").submit(function() {        
-      // Initiera error-variabler
       var errorMsg = "Ooops! Följande måste åtgärdas: \r\n";
-
-      var sendToServer = true;
-      
+      var sendToServer = true;      
 
       if ($("#desc").val().length === 0) {
           errorMsg += " ¤ Du måste fylla i en beskrivning. \r\n";
           sendToServer = false;
       }
       if ($("#desc").val().includes("'") || $("#desc").val().includes("\\")) {
-          errorMsg += " ¤ Beskrivningen innehåller otillåtna karaktärer. \r\n";
+          errorMsg += " ¤ Beskrivningen innehåller otillåtna tecken. \r\n";
           sendToServer = false;
       }
       if ($("#point").val().length === 0) {
@@ -102,6 +99,5 @@ $(document).ready(function() {
           event.preventDefault();
           alert(errorMsg + "\r\nFixa det och försök igen.");
       }
-
   });
 });
