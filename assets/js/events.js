@@ -62,3 +62,75 @@ function selectedEvents() {
       });
     return events;
   }
+
+    //Form validation
+$(document).ready(function() {
+  $("#add-event").submit(function() {        
+      var titleValue = document.getElementById("title").value;
+      var descValue = document.getElementById("description").value;
+      var locationValue = document.getElementById("location").value;
+      var dateValue = document.getElementById("datetime").value;
+      var timeValue = document.getElementById("starttime").value;
+      var pat1Value = document.getElementById("patron1").value;
+      var pat2Value = document.getElementById("patron2").value;
+
+      //var currDate = new Date();
+      //currDate.setHours(0, 0, 0, 0);
+
+      var errorMsg = "Ooops! Följande måste åtgärdas: \r\n";
+      var sendToServer = true;
+
+      if (titleValue.length === 0) {
+          errorMsg += " ¤ Du måste fylla i ett namn på eventet. \r\n";
+          sendToServer = false;
+      }
+      if (titleValue.includes("'") || titleValue.includes("\\")) {
+          errorMsg += " ¤ Namnet innehåller otillåtna tecken. \r\n";
+          sendToServer = false;
+      }
+      if (descValue.length === 0) {
+          errorMsg += " ¤ Du måste fylla i en beskrivning. \r\n";
+          sendToServer = false;
+      }
+      if (descValue.includes("'") || titleValue.includes("\\")) {
+          errorMsg += " ¤ Beskrivningen innehåller otillåtna tecken. \r\n";
+          sendToServer = false;
+      }
+      if (locationValue.length === 0) {
+          errorMsg += " ¤ Du måste fylla i en plats. \r\n";
+          sendToServer = false;
+      }
+      if (locationValue.includes("'") || titleValue.includes("\\")) {
+          errorMsg += " ¤ Location innehåller otillåtna tecken. \r\n";
+          sendToServer = false;
+      }
+      if (dateValue.length === 0) {
+        errorMsg += " ¤ Du måste ange ett datum. \r\n";
+        sendToServer = false;
+      }
+      /*if (dateValue < currDate) { //Lägg till kontroll för att se så att datumet inte passerat?
+          errorMsg += " ¤ Du har angett ett ogiltigt datum. \r\n";
+          sendToServer = false;
+      }*/
+      if (timeValue.length === 0) {
+        errorMsg += " ¤ Du måste ange ett klockslag. \r\n";
+        sendToServer = false;
+      }
+      if (pat1Value.length === 0) {
+        errorMsg += " ¤ Du måste ange nykterfadder #1. \r\n";
+        sendToServer = false;
+      }
+      if (pat2Value.length === 0) {
+        errorMsg += " ¤ Du måste ange nykterfadder #2. \r\n";
+        sendToServer = false;
+      }
+      else if (pat1Value == pat2Value) {
+        errorMsg += " ¤ Du måste välja två olika nykterfaddrar. \r\n";
+        sendToServer = false;
+      }
+      if (!sendToServer){
+          event.preventDefault();
+          alert(errorMsg + "\r\nFixa det och försök igen.");
+      }
+  });
+});
