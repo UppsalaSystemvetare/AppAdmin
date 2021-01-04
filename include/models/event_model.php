@@ -13,6 +13,15 @@ class Events
         return $result;
     }
 
+    static public function get_event($id) //Funktion för att hämta ett specifikt event (för att kunna redigera det)?? Kanske inte behövs om man kan hämta info från tabellen?
+    {
+        $connection = connect();
+        $sql = "SELECT * FROM Events WHERE Id = '$id'";
+        $result = $connection->query($sql);
+        $connection = disconnect();
+        return $result;
+    }
+
     static public function create_event($title, $dateTime, $startTime, $location, $description, $patron1, $patron2, $isPubrunda)
     {
         $connection = connect();
@@ -39,4 +48,6 @@ class Events
         $result = $connection->query($sql);
         $connection = disconnect();
     }
+
+    
 }
