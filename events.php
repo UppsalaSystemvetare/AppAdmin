@@ -53,9 +53,24 @@ include("include/html/menu.php");
         </tbody>
     </table>
 
-    <div class="content" id="create-events">
-        <h2>Create new event:</h2>
-        <form id="add-event" action="include/functions/createEventDB.php" method="post" enctype="multipart/form-data">
+
+    <div class="content" id="create-events">    
+<?php
+        //Försök till att ändra till ett edit-form om sidan tar emot en id-variabel via GET.
+        if (!isset($_GET['id'])){
+            echo "<h2>Create new event:</h2>
+            <form id=\"add-event\" action=\"include/functions/createEventDB.php\" method=\"post\" enctype=\"multipart/form-data\">";
+       
+        }else{
+            echo "<h2>Edit event:</h2>
+            <form id=\"edit-event\" action=\"include/functions/editEventDB.php\" method=\"post\" enctype=\"multipart/form-data\">";
+
+            //Ytterligare kod för att kunna visa förinmatade värden i formulärets value.
+            //Behövs skapas include/functions/editEventDB.php som kallar på update_event från event_model
+
+        }
+?>    
+    
             <div class="form-group">
                 <label for="title">Name:</label>
                 <input id="title" name="Name" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Name of the event">
