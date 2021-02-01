@@ -39,4 +39,6 @@ class Events
         $result = $connection->query($sql);
         $connection = disconnect();
     }
+
+    
 }
