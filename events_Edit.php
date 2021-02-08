@@ -19,16 +19,20 @@ if(!isset($_GET['id'])) {
       die('id is not in db');
   }
   $data = $result->fetch_assoc();
-  print_r($data);
+   
 ?>
+
+
 
 <div class="content" id="edit-events">
         <h2>Edit event:</h2>
         <form id="edit-event" action="include/functions/changeEventDB.php" method="post" enctype="multipart/form-data">
+        <input id="id" name="id" type="hidden" value="<?= $data['Id']?>"> 
             <div class="form-group">
                 <label for="title">Name:</label>
                 <input id="title" name="Name" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Name of the event" value="<?= $data['Title']?>"> 
             </div>
+
             <div class="form-group">
                 <label for="description">Description:</label>
                 <textarea id="description" name="Desc" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Description of the mission" > <?= $data['Description']?>  </textarea>
@@ -38,18 +42,19 @@ if(!isset($_GET['id'])) {
                 <input id="location" name="Location" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Location of the event" value="<?= $data['Location']?>" >
             </div>
             <div class="form-check" style="margin-bottom: 15px;">
-                <input type="checkbox" class="form-check-input" name="pubrunda" value="is_pubrunda">
+                <input type="checkbox" class="form-check-input" name="pubrunda" value="is_pubrunda" 
+                <?php if ($data['IsPubrunda'] == 1) { echo "checked";} ?>>
                 <label class="form-check-label" name="IsPubrunda" for="exampleCheck1">This event is a pubrunda with missions.</label>
             </div>
             <div class="form-group">
                 <div class="row">
                     <div class="col">
                         <label for="datetime">Date:</label>
-                        <input class="form-control" name="Date" type="date" id="datetime">
+                        <input class="form-control" name="Date" type="date" id="datetime" value="<?= $data['DateTime']?>">
                     </div>
                     <div class="col">
                         <label for="starttime">Time:</label>
-                        <input class="form-control" name="Starttime" type="time" id="starttime">
+                        <input class="form-control" name="Starttime" type="time" id="starttime" value="<?= $data['StartTime']?>">
                     </div>
                 </div>
             </div>
@@ -60,10 +65,17 @@ if(!isset($_GET['id'])) {
                         <select name="Patron1" class="form-control" id="patron1">
                             <option value="" selected>Nykterfadder 1</option>
                             <?php 
-                                $result = Faddrar::get_users();
+                                $result = Faddrar::get_users(); 
+                               
                                 while($row = $result->fetch_assoc()){ ?>
-                                <option value="<?php echo $row["id"] ?>"><?php echo $row["name"] ?></option>
-                            <?php } ?>
+                                <option value="<?php echo $row["id"] ?>"
+
+                                <?php 
+                                if ($row["id"] == $data['Patron1'] ) {echo "selected";}
+                                ?>
+
+                                ><?php echo $row["name"] ?></option>
+                            <?php }  ?>
                         </select>
                     </div>
                     <div class="col">
@@ -72,7 +84,13 @@ if(!isset($_GET['id'])) {
                             <?php 
                                 $result = Faddrar::get_users();
                                 while($row = $result->fetch_assoc()){ ?>
-                                <option value="<?php echo $row["id"] ?>"><?php echo $row["name"] ?></option>
+                                <option value="<?php echo $row["id"] ?>"
+                                
+                                <?php 
+                                if ($row["id"] == $data['Patron2'] ) {echo "selected";}
+                                ?>
+
+                                ><?php echo $row["name"] ?></option>
                             <?php } ?>
                         </select>
                     </div>

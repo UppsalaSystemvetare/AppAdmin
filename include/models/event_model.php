@@ -31,11 +31,11 @@ class Events
         return $result;
     }
 
-    static public function update_event($id, $title, $dateTime, $startTime, $location, $description, $patron1, $patron2)
+    static public function update_event($id, $title, $dateTime, $startTime, $location, $description, $patron1, $patron2, $IsPubrunda)
     {
         $connection = connect();
         $sql = "UPDATE events SET Title='$title', dateTime='$datetime', startTime='$starttime', 
-        location='$location', description='$description', patron1='$Patron1', patron2='$Patron2' where Id='$id'";
+        location='$location', description='$description', patron1='$Patron1', patron2='$Patron2', IsPubrunda='$IsPubrunda', where Id='$id'";
         $result = $connection->query($sql);
         $connection = disconnect();
     }
