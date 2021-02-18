@@ -34,8 +34,8 @@ class Events
     static public function update_event($id, $title, $dateTime, $startTime, $location, $description, $patron1, $patron2, $IsPubrunda)
     {
         $connection = connect();
-        $sql = "UPDATE Events SET Title='$title', DateTime='$datetime', StartTime='$starttime', 
-        Location='$location', Description='$description', Patron1='$Patron1', Patron2='$Patron2', IsPubrunda='$IsPubrunda' where Id='$id'"; //ändra till stor bokstav ibland!
+        $sql = "UPDATE Events SET Title='$title', DateTime='$dateTime', StartTime='$startTime', 
+        Location='$location', Description='$description', Patron1='$patron1', Patron2='$patron2', IsPubrunda='$IsPubrunda' where Id='$id'"; 
         $result = $connection->query($sql);
         $connection = disconnect();
     }
