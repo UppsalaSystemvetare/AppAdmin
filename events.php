@@ -6,10 +6,10 @@ include("include/html/menu.php");
 ?>
 
     <div class="btn-group" role="group" aria-label="Basic example">
-        <button class="btn btn-secondary" type="button">Modify Selected Event</button>
-        <button class="btn btn-secondary" type="button" onclick="scrollToCreateEvents()">Add New Events</button>
-        <button class="btn btn-secondary" type="button" onclick="scrollToTop()">Back To Top</button>
-        <button class="btn btn-danger" type="button" id="delete">Delete <i class="fas fa-trash-alt"></i></button>
+        <!--<button class="btn btn-secondary" type="button">Modify Selected Event</button> -->
+        <button class="btn btn-secondary" type="button" onclick="scrollToCreateEvents()">Lägg till nya events</button>
+        <button class="btn btn-secondary" type="button" onclick="scrollToTop()">Tillbaka till toppen</button>
+        <button class="btn btn-danger" type="button" id="delete">Ta bort valda <i class="fas fa-trash-alt"></i></button>
     </div>
    
     <table class="table table-striped table-bordered table-sm sortable" id="event-table">
@@ -18,13 +18,13 @@ include("include/html/menu.php");
             <tr>
                 <th>Select</th>
                 <th>Id</th>
-                <th>Name Of Event</th>
-                <th>Day</th>
-                <th>Starting Time</th>
-                <th>Location</th>
-                <th>Description</th>
-                <th>Patron 1</th>
-                <th>Patron 2</th>
+                <th>Namn på event</th>
+                <th>Dag</th>
+                <th>Klockslag</th>
+                <th>Plats</th>
+                <th>Beskrivning</th>
+                <th>Nykterfadder</th>
+                <th>Nykterfadder</th>
                 <th></th>
             </tr>
         </thead>
@@ -40,9 +40,9 @@ include("include/html/menu.php");
                     <td><?php echo $row["StartTime"]?></td>
                     <td><?php echo $row["Location"]?></td>
                     <td><?php echo $row["Description"]?></td>
-                    <td style="Width:120px;"><?php echo $row["Patron1"]?></td>
+                    <td style="Width:120px;"><?php echo $row["Patron1"]?></td> <!-- Lägg till så att namnet på nykterfaddrar hämtas, och inte bara id? Och rediger isf width så det funkar -->
                     <td style="Width:120px;"><?php echo $row["Patron2"]?></td>  
-                    <td style="Width:90px;">
+                    <td style="Width:50px;">
                         <?php echo 
                         "<button id=" . $row["Id"] .  " class='btn-xs btn_edit'><i class='fas fa-cog'></i></button>" ?>
                     </td>
@@ -54,32 +54,32 @@ include("include/html/menu.php");
     </table>
 
     <div class="content" id="create-events">
-        <h2>Create new event:</h2>
+        <h2>Skapa ett nytt event:</h2>
         <form id="add-event" action="include/functions/createEventDB.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="title">Name:</label>
-                <input id="title" name="Name" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Name of the event">
+                <label for="title">Namn:</label>
+                <input id="title" name="Name" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Namn på eventet">
             </div>
             <div class="form-group">
-                <label for="description">Description:</label>
-                <textarea id="description" name="Desc" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Description of the mission"></textarea>
+                <label for="description">Beskrivning:</label>
+                <textarea id="description" name="Desc" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Beskrivning av eventet"></textarea>
             </div>
             <div class="form-group">
-                <label for="location">Location:</label>
-                <input id="location" name="Location" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Location of the event">
+                <label for="location">Plats:</label>
+                <input id="location" name="Location" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Plats för event">
             </div>
             <div class="form-check" style="margin-bottom: 15px;">
                 <input type="checkbox" class="form-check-input" name="pubrunda" value="is_pubrunda">
-                <label class="form-check-label" name="IsPubrunda" for="exampleCheck1">This event is a pubrunda with missions.</label>
+                <label class="form-check-label" name="IsPubrunda" for="exampleCheck1">Detta event är en pubrunda med uppdrag.</label>
             </div>
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label for="datetime">Date:</label>
+                        <label for="datetime">Datum:</label>
                         <input class="form-control" name="Date" type="date" id="datetime">
                     </div>
                     <div class="col">
-                        <label for="starttime">Time:</label>
+                        <label for="starttime">Klockslag:</label>
                         <input class="form-control" name="Starttime" type="time" id="starttime">
                     </div>
                 </div>
@@ -109,15 +109,15 @@ include("include/html/menu.php");
                     </div>
                 </div>
             </div>
-            <input class="btn btn-primary" type="submit" value="Submit">
+            <input class="btn btn-primary" type="submit" value="Skapa">
         </form>
-        <h1> - OR - </h1>
-        <h2>Create multiple new events: (.xls, .xlsx)</h2>
+        <h1> - ELLER - </h1>
+        <h2>Skapa flera event från en excelfil: (.xls, .xlsx)</h2>
         <form action="include/functions/createEventDB.php" method="post" enctype="multipart/form-data">
             <div class="form-group input-group-lg">
                 <input name="FILE" type="file">
             </div> 
-            <input class="btn btn-primary" type="submit" value="Submit">
+            <input class="btn btn-primary" type="submit" value="Skapa flera">
         </form>
     </div>
 </body>
