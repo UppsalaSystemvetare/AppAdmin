@@ -46,12 +46,12 @@
     $description = mysqli_real_escape_string($connection, $_POST['Desc']);
     $patron1 = mysqli_real_escape_string($connection, $_POST['Patron1']);
     $patron2 = mysqli_real_escape_string($connection, $_POST['Patron2']);
-
+/*
     var_dump ($dateTime);
     var_dump ($startTime);
     var_dump ($patron1);
     var_dump ($patron2);
-  
+  */
     if(isset($_POST['pubrunda'])){
           $IsPubrunda = 1;
     } else {
@@ -63,4 +63,4 @@
     }
 
     //Events::update_event($id, $title, $dateTime, $startTime, $location, $description, $patron1, $patron2, $IsPubrunda);
- 
+    header('Location: ../../events.php');
