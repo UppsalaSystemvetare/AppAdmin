@@ -3,6 +3,11 @@
     padding: 60px;
 }
 
+#edit-events{
+    height: 100vh;
+    padding: 60px;
+}
+
 .form-group{
     width: 100%;
     max-width: 800px;
