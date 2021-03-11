@@ -4,8 +4,11 @@ include("include/models/event_model.php");
 include("include/models/faddrar_model.php");
 include("include/html/menu.php");
 ?>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>    
+<script src="assets/js/events.js"></script>
+<script src="assets/js/eventMap.js"></script>
 
-    <div class="btn-group" role="group" aria-label="Basic example">
+    <div class="btn-group" style="z-index: 2;" role="group" aria-label="Basic example">
         <button class="btn btn-secondary" type="button">Modify Selected Event</button>
         <button class="btn btn-secondary" type="button" onclick="scrollToCreateEvents()">Add New Events</button>
         <button class="btn btn-secondary" type="button" onclick="scrollToTop()">Back To Top</button>
@@ -68,18 +71,20 @@ include("include/html/menu.php");
                 <label for="location">Location:</label>
                 <input id="location" name="Location" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Location of the event">
             </div>
-            <input
-             id="pac-input"
-             class="controls"
-             type="text"
-             placeholder="Adress/Namn"/>
-            <div id="map"></div>
-            <script
-             type="text/javascript"
-             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjmPlXy3hVcNF3Ifaww7-0jb_utpXNq5s&callback=initMap&libraries=places"
-             async
-            ></script>
-            <input type="hidden" id="locationCoords" name="LocationCoords" />
+            <div class="form-group">
+                <input
+                 id="pac-input"
+                 class="controls form-control"
+                 type="text"
+                 placeholder="Adress/Namn"/>
+                <div id="map"></div>
+                <script
+                 type="text/javascript"
+                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjmPlXy3hVcNF3Ifaww7-0jb_utpXNq5s&callback=initMap&libraries=places"
+                 async
+                ></script>
+                <input type="hidden" id="locationCoords" name="LocationCoords" />
+                </div>
             <div class="form-check" style="margin-bottom: 15px;">
                 <input type="checkbox" class="form-check-input" name="pubrunda" value="is_pubrunda">
                 <label class="form-check-label" name="IsPubrunda" for="exampleCheck1">This event is a pubrunda with missions.</label>
@@ -133,9 +138,5 @@ include("include/html/menu.php");
         </form>
     </div>
 </body>
-    
-<script src="assets/js/events.js"></script>
-<script src="assets/js/eventMap.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </html>
 
