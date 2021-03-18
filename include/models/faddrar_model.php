@@ -59,4 +59,12 @@ class Faddrar
         $result = $connection->query($query);
         $connection = disconnect();
     }
+    
+    static public function change_fadder($id, $name, $nr, $img)
+    {
+        $connection = connect();
+        $query = "UPDATE Faddrar SET name = '$name', imgURL = '$img', Number = '$nr' WHERE id = '$id'";
+        $result = $connection->query($query);
+        $connection = disconnect();
+    }
 }

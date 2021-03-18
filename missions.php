@@ -17,6 +17,7 @@ include("include/html/menu.php");
                 <th>Id</th>
                 <th>Description</th>
                 <th>Point value (0 if user-controlled)</th>
+                <th></th>
                 <!-- <th>Ändra</th>
                 <th>Ta bort</th> -->
             </tr>
@@ -33,6 +34,10 @@ include("include/html/menu.php");
                 <td><?php echo $row["Id"]?></td>
                 <td><?php echo $row["Description"]?></td>
                 <td><?php echo $row["PointValue"]?></td>
+                <td style="Width:50px;">
+                        <?php echo 
+                        "<a href=\"missions_edit.php?id=" . $row["Id"] .  "\"> <button><i class='fas fa-cog'></i></button></a>" ?>
+                    </td>
                 <!-- <td><button class="btn-xs btn-secondary" id="<?php echo $row['Id'] ?>" onclick="change_mission(<?php echo $row['Id'] ?>)">Ändra</button></td>
                 <td><button class="btn-xs btn-danger" id="<?php echo $row['Id'] ?>" onclick="delete_mission(<?php echo $row['Id'] ?>)">Ta bort</button></td> -->
                 <input class="Id" type="hidden" value="<?php echo $row["Id"] ?>">

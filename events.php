@@ -44,7 +44,7 @@ include("include/html/menu.php");
                     <td style="Width:120px;"><?php echo $row["Patron2"]?></td>  
                     <td style="Width:50px;">
                         <?php echo 
-                        "<button id=" . $row["Id"] .  " class='btn-xs btn_edit'><i class='fas fa-cog'></i></button>" ?>
+                        "<a href=\"events_edit.php?id=" . $row["Id"] .  "\"> <button id=" . $row["Id"] .  " class='btn-xs btn_edit'><i class='fas fa-cog'></i></button></a>" ?>
                     </td>
                     <input class="Id" type="hidden" value="<?php echo $row["Id"] ?>">
 
