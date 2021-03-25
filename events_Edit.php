@@ -22,6 +22,9 @@ if($result->num_rows != 1) {
 
 $data = $result->fetch_assoc();  
 ?>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>    
+<script src="assets/js/events.js"></script>
+<script src="assets/js/eventMap.js"></script>
 
 <div class="content" id="edit-events">
         <h2>Redigera event:</h2>
@@ -39,6 +42,22 @@ $data = $result->fetch_assoc();
             <div class="form-group">
                 <label for="location">Plats:</label>
                 <input id="location" name="Location" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" value="<?= $data['Location']?>" >
+            </div>
+            <div class="form-group">
+            <?php $coords = json_decode($data['LocationCoords']); ?>
+            <div id="mapcoords"data-lat="<?= $coords['lat']?>" data-lng="<?= $coords['lng']?>" ></div>
+                <input
+                 id="pac-input"
+                 class="controls form-control"
+                 type="text"
+                 placeholder="Adress/Namn"/>
+                <div id="map"></div>
+                <script
+                 type="text/javascript"
+                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjmPlXy3hVcNF3Ifaww7-0jb_utpXNq5s&callback=initMap&libraries=places"
+                 async
+                ></script>
+                <input type="hidden" id="locationCoords" name="LocationCoords" value="<?= $data['LocationCoords']?>" />
             </div>
             <div class="form-check" style="margin-bottom: 15px;">
                 <input type="checkbox" class="form-check-input" name="pubrunda" value="is_pubrunda" 

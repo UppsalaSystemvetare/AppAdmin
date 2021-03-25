@@ -1,14 +1,31 @@
 function initMap() {
-  const ekonomikum = { lat: 59.859372246046, lng: 17.6188528646033 };
+  const mapcoordsdiv = document.querySelector("#mapcoords");
+  let initcoords = { lat: 59.859372246046, lng: 17.6188528646033 };
+  let zoom = 14;
   const locationInput = document.querySelector("#locationCoords");
+  if (mapcoordsdiv){
+    initcoords = {lat: parseFloat(mapcoordsdiv.getAttribute("data-lat")), lng: parseFloat(mapcoordsdiv.getAttribute("data-lng"))};
+    zoom = 8;
+  }
   // Initialize map
   const map = new google.maps.Map(document.querySelector("#map"), {
-    zoom: 14,
-    center: ekonomikum,
+    zoom: zoom,
+    center: initcoords,
   });
 
   // Initialize markers array
   let markers = [];
+
+  if(mapcoordsdiv){
+    markers.push(
+      new google.maps.Marker({
+        position: initcoords,
+        map,
+        //title: "Hello World!",()
+      })
+    )
+  }
+
 
   // Search box
   const input = document.querySelector("#pac-input");
@@ -54,7 +71,7 @@ function initMap() {
       const coordsObject = { lat, lng };
 
       locationInput.value = JSON.stringify(coordsObject);
-      console.log(locationInput.value);
+      //console.log(locationInput.value);
 
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
