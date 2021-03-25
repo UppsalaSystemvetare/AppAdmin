@@ -1,31 +1,34 @@
 function initMap() {
-  const mapcoordsdiv = document.querySelector("#mapcoords");
-  let initcoords = { lat: 59.859372246046, lng: 17.6188528646033 };
-  let zoom = 14;
   const locationInput = document.querySelector("#locationCoords");
-  if (mapcoordsdiv){
-    initcoords = {lat: parseFloat(mapcoordsdiv.getAttribute("data-lat")), lng: parseFloat(mapcoordsdiv.getAttribute("data-lng"))};
-    zoom = 8;
+  let edit = false;
+  if (locationInput.value) edit = true;
+
+  let initcoords = { lat: 59.859372246046, lng: 17.6188528646033 };
+
+  if (edit) {
+    coordsObject = JSON.parse(locationInput.value);
+    initcoords = {
+      lat: coordsObject.lat,
+      lng: coordsObject.lng,
+    };
   }
   // Initialize map
   const map = new google.maps.Map(document.querySelector("#map"), {
-    zoom: zoom,
+    zoom: 14,
     center: initcoords,
   });
 
   // Initialize markers array
   let markers = [];
 
-  if(mapcoordsdiv){
+  if (edit) {
     markers.push(
       new google.maps.Marker({
         position: initcoords,
         map,
-        //title: "Hello World!",()
       })
-    )
+    );
   }
-
 
   // Search box
   const input = document.querySelector("#pac-input");
