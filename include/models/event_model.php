@@ -31,12 +31,14 @@ class Events
         return $result;
     }
 
-    static public function update_event($id, $title, $dateTime, $startTime, $location, $description, $patron1, $patron2, $locationCoords)
+    static public function update_event($id, $title, $dateTime, $startTime, $location, $description, $patron1, $patron2, $IsPubrunda, $locationCoords)
     {
         $connection = connect();
-        $sql = "UPDATE events SET Title='$title', dateTime='$datetime', startTime='$starttime', 
-        location='$location', description='$description', patron1='$Patron1', patron2='$Patron2', locationCoords='$locationCoords' where Id='$id'";
+        $sql = "UPDATE Events SET Title='$title', DateTime='$dateTime', StartTime='$startTime', 
+        Location='$location', Description='$description', Patron1='$patron1', Patron2='$patron2', IsPubrunda='$IsPubrunda', LocationCoords='$locationCoords' where Id='$id'"; 
         $result = $connection->query($sql);
         $connection = disconnect();
     }
+
+    
 }

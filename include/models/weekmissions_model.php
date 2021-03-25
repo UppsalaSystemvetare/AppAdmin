@@ -24,7 +24,7 @@ class WeekMissions
     static public function change_mission($id, $desc, $points)
     {
         $connection = connect();
-        $query = "UPDATE WeekMission SET Description = '$desc', PointValue = '$points' WHERE ID = '$id'"; // TODO ändra alla lags koppling med uppdraget
+        $query = "UPDATE WeekMission SET Description = '$desc', PointValue = '$points' WHERE ID = '$id'";
         $result = $connection->query($query);
         $connection = disconnect();
     }

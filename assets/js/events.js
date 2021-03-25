@@ -13,15 +13,19 @@ function scrollToCreateEvents(){
     $('html,body').animate({scrollTop:distance},500);
 }
 
+/*
 $( document ).ready(function() {
     $('.btn_edit').click(function(){
-        alert(this.id);
+        //alert(this.id);
+        location.replace("events_edit.php?id=" + this.id);
+
     });
 
-    function OpenEditWindow(id){
+    function OpenEditWindow(id){ //används inte
         $('#edit_window').show();
     }
 });
+*/
 
 $(document).on("click", "tr :checkbox", function(event) {
     $(this)
@@ -108,10 +112,6 @@ $(document).ready(function() {
         errorMsg += " ¤ Du måste ange ett datum. \r\n";
         sendToServer = false;
       }
-      /*if (dateValue < currDate) { //Lägg till kontroll för att se så att datumet inte passerat?
-          errorMsg += " ¤ Du har angett ett ogiltigt datum. \r\n";
-          sendToServer = false;
-      }*/
       if (timeValue.length === 0) {
         errorMsg += " ¤ Du måste ange ett klockslag. \r\n";
         sendToServer = false;

@@ -44,6 +44,7 @@ include("include/models/faddrar_model.php");
                 <th id="sort-rank" scope="col">Rank</th>
                 <th id="sort-team" scope="col">Team</th>
                 <th id="sort-number" scope="col">Number</th>
+                <th></th>
             </tr>
         </thead>
         <tbody id="user-table">
@@ -93,6 +94,10 @@ include("include/models/faddrar_model.php");
                             }
                             ?></td>
                     <td> <?php echo $row["Number"] . ' <button class="change-number" class="btn btn-secondary btn-sm" type="button">Change</button>'; ?></td>
+                    <td style="Width:50px;">
+                        <?php echo 
+                        "<a href=\"faddrar_edit.php?id=" . $row["id"] .  "\"> <button><i class='fas fa-cog'></i></button></a>" ?>
+                    </td>
                 </tr>
             <?php } ?>
 

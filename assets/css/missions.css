@@ -3,6 +3,11 @@
     padding: 60px;
 }
 
+#edit-missions{
+    height: 100%;
+    padding: 60px;
+}
+
 .form-group{
     width: 100%;
     max-width: 800px;
