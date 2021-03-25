@@ -36,7 +36,7 @@
 
   if(isset($_POST['Name']) && isset($_POST['Date']) && 
   isset($_POST['Starttime']) && isset($_POST['Location']) && 
-  isset($_POST['Desc']) && isset($_POST['Patron1']) && isset($_POST['Patron2'])){
+  isset($_POST['Desc']) && isset($_POST['Patron1']) && isset($_POST['Patron2']) && isset($_POST['LocationCoords'])){
   
     $id = mysqli_real_escape_string($connection, $_POST['id']);
     $title = mysqli_real_escape_string($connection, $_POST['Name']);
@@ -46,6 +46,7 @@
     $description = mysqli_real_escape_string($connection, $_POST['Desc']);
     $patron1 = mysqli_real_escape_string($connection, $_POST['Patron1']);
     $patron2 = mysqli_real_escape_string($connection, $_POST['Patron2']);
+    $locationCoords = mysqli_real_escape_string($connection, $_POST['LocationCoords']);
 /*
     var_dump ($dateTime);
     var_dump ($startTime);
@@ -59,7 +60,7 @@
     }
 
     //Events::create_event($title, $dateTime, $startTime, $location, $description, $patron1, $patron2, $IsPubrunda); 
-    Events::update_event($id, $title, $dateTime, $startTime, $location, $description, $patron1, $patron2, $IsPubrunda);
+    Events::update_event($id, $title, $dateTime, $startTime, $location, $description, $patron1, $patron2, $IsPubrunda, $locationCoords);
     }
 
     //Events::update_event($id, $title, $dateTime, $startTime, $location, $description, $patron1, $patron2, $IsPubrunda);
