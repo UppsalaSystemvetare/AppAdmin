@@ -231,7 +231,7 @@ $(document).ready(function() {
         } 
         if (index = 3) {
           rows.sort();
-          rows.reverse();
+          //rows.reverse();
         }
       // Sort it
      
