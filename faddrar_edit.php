@@ -23,7 +23,7 @@ if($result->num_rows != 1) {
 }
 
 $data = $result->fetch_assoc();  
-var_dump($data);
+
 ?>
 
 <div class="content" id="create-faddrar">
