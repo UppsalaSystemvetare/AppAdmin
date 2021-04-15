@@ -37,7 +37,7 @@ class Faddrar
         $connection = disconnect();
     }
 
-    static public function delete_user($id)
+    static public function delete_fadder($id)
     {
         $connection = connect();
         $query = "DELETE FROM Faddrar WHERE id = '$id'";

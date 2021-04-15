@@ -13,6 +13,41 @@ function scrollToCreateFaddrar(){
     $('html,body').animate({scrollTop:distance},500);
 }
 
+//delete listener
+$(document).ready(function() {
+    $("#delete").click(function() {
+      var faddrar = selectedFaddrar();
+      faddrar.forEach(element => {
+        delete_fadder(element);
+      });
+    });
+  });
+
+function delete_fadder(id){
+
+    $.post("include/functions/deleteFadderDB.php", { ID: id }, function(data) {
+        location.reload();
+    });
+}
+
+//get selected faddrar
+function selectedFaddrar() {
+    var events = [];
+    $("#user-table")
+      .find("tr")
+      .each(function() {
+        var row = $(this);
+        if (row.find('input[type="checkbox"]').is(":checked")) {
+  
+            events.push($(row)
+            .find(".ID")
+            .val());
+  
+        }
+      });
+    return events;
+  }
+
     //Form validation
     $(document).ready(function() {
         $("#fadder-form").submit(function() {         
