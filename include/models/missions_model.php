@@ -27,11 +27,25 @@ class Missions{
 
     static public function delete_mission($id){
         $connection = connect();
-        $query = "DELETE FROM Misson WHERE Id = '$id'"; // TODO ta bort alla lags koppling med uppdraget i missionyellow, missiongreen osv
+        $query = "DELETE FROM Misson WHERE Id = '$id'"; 
         $result = $connection->query($query);
+
+        $greenquery = "DELETE FROM `Misson_Green` WHERE `Misson_Id` = '$id'";
+        $greenresult = $connection->query($greenquery);
+
+        $bluequery = "DELETE FROM `Misson_Blue` WHERE `Misson_Id` = '$id'";
+        $blueresult = $connection->query($bluequery);
+
+        $yellowquery = "DELETE FROM `Misson_Yellow` WHERE `Misson_Id` = '$id'";
+        $yellowresult = $connection->query($yellowquery);
+
+        $redquery = "DELETE FROM `Misson_Red` WHERE `Misson_Id` = '$id'";
+        $redresult = $connection->query($redquery);
+
         $connection = disconnect();
         return $result;
     }
+
 }
 
 ?>

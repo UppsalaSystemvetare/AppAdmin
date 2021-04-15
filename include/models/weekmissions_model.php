@@ -32,8 +32,21 @@ class WeekMissions
     static public function delete_mission($id)
     {
         $connection = connect();
-        $query = "DELETE FROM WeekMission WHERE Id = '$id'"; // TODO ta bort alla lags koppling med uppdraget i missionyellow, missiongreen osv
+        $query = "DELETE FROM WeekMission WHERE Id = '$id'"; 
         $result = $connection->query($query);
+
+        $greenquery = "DELETE FROM `WeekMission_Green` WHERE `Mission_Id` = '$id'";
+        $greenresult = $connection->query($greenquery);
+
+        $bluequery = "DELETE FROM `WeekMission_Blue` WHERE `Mission_Id` = '$id'";
+        $blueresult = $connection->query($bluequery);
+
+        $yellowquery = "DELETE FROM `WeekMission_Yellow` WHERE `Mission_Id` = '$id'";
+        $yellowresult = $connection->query($yellowquery);
+
+        $redquery = "DELETE FROM `WeekMission_Red` WHERE `Mission_Id` = '$id'";
+        $redresult = $connection->query($redquery);
+
         $connection = disconnect();
         return $result;
     }
