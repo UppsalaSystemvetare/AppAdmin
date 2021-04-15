@@ -1,1 +1,1 @@
-you do not have permission - <a href="index.php">back to home</a>
+Nekad åtkomst! - <a href="index.php">Tilbaka till start</a> - <a href="include/functions/logout_process.php">Logga ut</a>
