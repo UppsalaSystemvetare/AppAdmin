@@ -2,10 +2,12 @@
     require "../models/weekmissions_model.php";
     require_once "../../Classes/PHPExcel/IOFactory.php"; 
     
-    if(isset($_POST["DESC"]) && isset($_POST["POINTS"]) && !empty($_POST["DESC"]) && !empty($_POST["POINTS"])){
+    if(isset($_POST["DESC"]) && isset($_POST["POINTS"]) && !empty($_POST["DESC"]) && !empty($_POST["POINTS"])
+    && $_POST['WEEK'] && isset($_POST['WEEK'])){
         $desc = $_POST["DESC"];
         $points = $_POST["POINTS"];
-        WeekMissions::create_mission($desc, $points);
+        $week = $_POST['WEEK'];
+        WeekMissions::create_mission($desc, $points, $week);
     }
     else if(isset($_FILES["FILE"]) && isset($_FILES["FILE"]["tmp_name"])){
         $document = PHPExcel_IOFactory::load($_FILES["FILE"]["tmp_name"]);
@@ -16,4 +18,4 @@
             }
         }
     }
-    header('Location: ../../weekmissions.php');
+    header("Location: ../../weekmissions.php?WEEK=${week}");

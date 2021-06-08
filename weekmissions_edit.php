@@ -29,6 +29,14 @@ $data = $result->fetch_assoc();
     <form action="include/functions/changeWeekMissionsDB.php" id="edit-weekmission-form" method="post" enctype="multipart/form-data">
     <input id="id" name="ID" type="hidden" value="<?= $data['Id']?>"> 
         <div class="form-group">
+            <label for="week">Week Number</label>
+            <select id="week" name="WEEK" >
+                <?php for ($i=1; $i < 54; $i++) :?>
+                    <option value="<?=$i?>" <?= ($i == $week) ? selected : '' ?>><?=$i?></option>
+                <?php endfor ?>
+            </select>
+        </div>
+        <div class="form-group">
             <label for="desc">Beskrivning</label>
             <input id="desc" name="DESC" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" value="<?= $data['Description']?>">
         </div>

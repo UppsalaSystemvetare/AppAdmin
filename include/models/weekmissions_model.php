@@ -13,18 +13,18 @@ class WeekMissions
         return $result;
     }
 
-    static public function create_mission($desc, $points)
+    static public function create_mission($desc, $points, $week)
     {
         $connection = connect();
-        $query = "INSERT INTO `WeekMission` (`Description`, `PointValue`) VALUES ('$desc', '$points')";
+        $query = "INSERT INTO `WeekMission` (`Description`, `PointValue`, `Week`) VALUES ('$desc', '$points', $week)";
         $result = $connection->query($query);
         $connection = disconnect();
     }
 
-    static public function change_mission($id, $desc, $points)
+    static public function change_mission($id, $desc, $points, $week)
     {
         $connection = connect();
-        $query = "UPDATE WeekMission SET Description = '$desc', PointValue = '$points' WHERE ID = '$id'";
+        $query = "UPDATE WeekMission SET Description = '$desc', PointValue = '$points', Week = $week WHERE ID = '$id'";
         $result = $connection->query($query);
         $connection = disconnect();
     }
@@ -49,5 +49,20 @@ class WeekMissions
 
         $connection = disconnect();
         return $result;
+    }
+
+    static public function get_week_from_params()
+    {
+        $url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $url_components = parse_url($url);
+
+        $week = "hej";
+
+        if(isset($url_components['query'])) {
+            parse_str($url_components['query'], $params);
+            $week = $params['WEEK'];
+        }
+
+        return $week;
     }
 }

@@ -1,6 +1,8 @@
 <?php
 include("include/models/weekmissions_model.php");
 include("include/html/menu.php");
+
+$week = WeekMissions::get_week_from_params();
 ?>
 
 <div class="btn-group" role="group" aria-label="Basic example">
@@ -17,6 +19,7 @@ include("include/html/menu.php");
             <th>Id</th>
             <th>Description</th>
             <th>Point value (0 if user-controlled)</th>
+            <th>Week</th>
             <th></th>
             <!-- <th>Ändra</th>
                 <th>Ta bort</th> -->
@@ -34,6 +37,7 @@ include("include/html/menu.php");
                 <td><?php echo $row["Id"] ?></td>
                 <td><?php echo $row["Description"] ?></td>
                 <td><?php echo $row["PointValue"] ?></td>
+                <td><?php echo $row["Week"] ?></td>
                 <td style="Width:50px;">
                         <?php echo 
                         "<a href=\"weekmissions_edit.php?id=" . $row["Id"] .  "\"> <button><i class='fas fa-cog'></i></button></a>" ?>
@@ -51,6 +55,14 @@ include("include/html/menu.php");
     <h2>Create single new week mission:</h2>
     <form action="include/functions/createWeekMissionsDB.php" id="weekmission-form" method="post" enctype="multipart/form-data">
         <div class="form-group">
+            <label for="week">Week Number</label>
+            <select id="week" name="WEEK" >
+                <?php for ($i=1; $i < 54; $i++) :?>
+                    <option value="<?=$i?>" <?= ($i == $week) ? selected : '' ?>><?=$i?></option>
+                <?php endfor ?>
+            </select>
+        </div>
+        <div class="form-group">
             <label for="desc">Description</label>
             <input id="desc" name="DESC" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Description of the mission">
         </div>
@@ -60,14 +72,14 @@ include("include/html/menu.php");
         </div>
         <input class="btn btn-primary" type="submit" value="Submit">
     </form>
-    <h1> - OR - </h1>
+    <!-- <h1> - OR - </h1>
     <h2>Create multiple new week missions: (.xls, .xlsx)</h2>
     <form action="include/functions/createWeekMissionsDB.php" method="post" enctype="multipart/form-data">
         <div class="form-group input-group-lg">
             <input name="FILE" type="file">
         </div>
         <input class="btn btn-primary" type="submit" value="Submit">
-    </form>
+    </form> -->
 </div>
 </div>
 </body>
