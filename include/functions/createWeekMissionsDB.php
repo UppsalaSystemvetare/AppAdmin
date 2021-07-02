@@ -2,7 +2,7 @@
     require "../models/weekmissions_model.php";
     require_once "../../Classes/PHPExcel/IOFactory.php"; 
     
-    if(isset($_POST["DESC"]) && isset($_POST["POINTS"]) && !empty($_POST["DESC"]) && !empty($_POST["POINTS"])
+    if(isset($_POST["DESC"]) && isset($_POST["POINTS"]) && !empty($_POST["DESC"])
     && $_POST['WEEK'] && isset($_POST['WEEK'])){
         $desc = $_POST["DESC"];
         $points = $_POST["POINTS"];
