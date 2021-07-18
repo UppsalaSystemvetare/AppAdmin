@@ -3,7 +3,7 @@
     require_once "../../Classes/PHPExcel/IOFactory.php"; 
     
     // using form
-    if(isset($_POST["DESC"]) && isset($_POST["POINTS"]) && !empty($_POST["DESC"]) && !empty($_POST["POINTS"])){
+    if(isset($_POST["DESC"]) && isset($_POST["POINTS"]) && !empty($_POST["DESC"])){
         $desc = $_POST["DESC"];
         $points = $_POST["POINTS"];
         Missions::create_mission($desc, $points);
