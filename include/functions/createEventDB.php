@@ -6,7 +6,7 @@
     // using form
     if(isset($_POST['Name']) && isset($_POST['Date']) && 
         isset($_POST['Starttime']) && isset($_POST['Location']) && 
-        isset($_POST['Desc']) && isset($_POST['Patron1']) && isset($_POST['Patron2']) && isset($_POST['LocationCoords'])){
+        isset($_POST['Desc']) && isset($_POST['Patron1']) && isset($_POST['Patron2']) && isset($_POST['Patron3']) && isset($_POST['Patron4']) && isset($_POST['LocationCoords'])){
         
         $title = mysqli_real_escape_string($connection, $_POST['Name']);
         $description = mysqli_real_escape_string($connection, $_POST['Desc']);
@@ -15,15 +15,11 @@
         $startTime = mysqli_real_escape_string($connection, $_POST['Starttime']);
         $patron1 = mysqli_real_escape_string($connection, $_POST['Patron1']);
         $patron2 = mysqli_real_escape_string($connection, $_POST['Patron2']);
+        $patron3 = mysqli_real_escape_string($connection, $_POST['Patron3']);
+        $patron4 = mysqli_real_escape_string($connection, $_POST['Patron4']);
         $locationCoords = mysqli_real_escape_string($connection, $_POST['LocationCoords']);
-        
-        if(isset($_POST['pubrunda'])){
-            $IsPubrunda = 1;
-        } else {
-            $IsPubrunda = 0;
-        }
 
-        Events::create_event($title, $dateTime, $startTime, $location, $description, $patron1, $patron2, $IsPubrunda, $locationCoords); 
+        Events::create_event($title, $dateTime, $startTime, $location, $description, $patron1, $patron2, $patron3, $patron4, $locationCoords); 
     }
 
     // TODO: Fixa på exceldelen också

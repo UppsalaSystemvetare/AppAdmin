@@ -57,11 +57,6 @@ $data = $result->fetch_assoc();
                 ></script>
                 <input type="hidden" id="locationCoords" name="LocationCoords" value=<?= $data['LocationCoords']?> />
             </div>
-            <div class="form-check" style="margin-bottom: 15px;">
-                <input type="checkbox" class="form-check-input" name="pubrunda" value="is_pubrunda" 
-                <?php if ($data['IsPubrunda'] == 1) { echo "checked";} ?>>
-                <label class="form-check-label" name="IsPubrunda" for="exampleCheck1">Detta event är en pubrunda med uppdrag!</label>
-            </div>
             <div class="form-group">
                 <div class="row">
                     <div class="col">
@@ -104,6 +99,41 @@ $data = $result->fetch_assoc();
                                 
                                 <?php 
                                 if ($row["id"] == $data['Patron2'] ) {echo "selected";}
+                                ?>
+
+                                ><?php echo $row["name"] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <select name="Patron3" class="form-control" id="patron3">
+                            <option value="" selected>Nykterfadder 3</option>
+                            <?php 
+                                $result = Faddrar::get_users(); 
+                               
+                                while($row = $result->fetch_assoc()){ ?>
+                                <option value="<?php echo $row["id"] ?>"
+
+                                <?php 
+                                if ($row["id"] == $data['Patron3'] ) {echo "selected";}
+                                ?>
+
+                                ><?php echo $row["name"] ?></option>
+                            <?php }  ?>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select name="Patron4" class="form-control" id="patron4">
+                            <option value="" selected>Nykterfadder 4</option>
+                            <?php 
+                                $result = Faddrar::get_users();
+                                while($row = $result->fetch_assoc()){ ?>
+                                <option value="<?php echo $row["id"] ?>"
+                                
+                                <?php 
+                                if ($row["id"] == $data['Patron4'] ) {echo "selected";}
                                 ?>
 
                                 ><?php echo $row["name"] ?></option>

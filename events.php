@@ -28,6 +28,8 @@ include("include/html/menu.php");
                 <th>Beskrivning</th>
                 <th>Nykterfadder</th>
                 <th>Nykterfadder</th>
+                <th>Nykterfadder</th>
+                <th>Nykterfadder</th>
                 <th></th>
             </tr>
         </thead>
@@ -45,6 +47,8 @@ include("include/html/menu.php");
                     <td><?php echo $row["Description"]?></td>
                     <td style="Width:120px;"><?php echo $row["Patron1"]?></td> <!-- Lägg till så att namnet på nykterfaddrar hämtas, och inte bara id? Och rediger isf width så det funkar -->
                     <td style="Width:120px;"><?php echo $row["Patron2"]?></td>  
+                    <td style="Width:120px;"><?php echo $row["Patron3"]?></td>  
+                    <td style="Width:120px;"><?php echo $row["Patron4"]?></td>  
                     <td style="Width:50px;">
                         <?php echo 
                         "<a href=\"events_edit.php?id=" . $row["Id"] .  "\"> <button id=" . $row["Id"] .  " class='btn-xs btn_edit'><i class='fas fa-cog'></i></button></a>" ?>
@@ -85,10 +89,6 @@ include("include/html/menu.php");
                 ></script>
                 <input type="hidden" id="locationCoords" name="LocationCoords" />
                 </div>
-            <div class="form-check" style="margin-bottom: 15px;">
-                <input type="checkbox" class="form-check-input" name="pubrunda" value="is_pubrunda">
-                <label class="form-check-label" name="IsPubrunda" for="exampleCheck1">Detta event är en pubrunda med uppdrag.</label>
-            </div>
             <div class="form-group">
                 <div class="row">
                     <div class="col">
@@ -116,6 +116,28 @@ include("include/html/menu.php");
                     </div>
                     <div class="col">
                         <select name="Patron2" class="form-control" id="patron2">
+                            <option value="" selected>Nykterfadder 1</option>
+                            <?php 
+                                $result = Faddrar::get_users();
+                                while($row = $result->fetch_assoc()){ ?>
+                                <option value="<?php echo $row["id"] ?>"><?php echo $row["name"] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <select name="Patron3" class="form-control" id="patron3">
+                            <option value="" selected>Nykterfadder 1</option>
+                            <?php 
+                                $result = Faddrar::get_users();
+                                while($row = $result->fetch_assoc()){ ?>
+                                <option value="<?php echo $row["id"] ?>"><?php echo $row["name"] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select name="Patron4" class="form-control" id="patron4">
                             <option value="" selected>Nykterfadder 1</option>
                             <?php 
                                 $result = Faddrar::get_users();
